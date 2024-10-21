@@ -1,5 +1,6 @@
 # SEED-Crypto-Lab
 
-[LAB 1](lab1)
+## List of Labs:
 
-## [LAB 2](./lab2)
+### [Lab 1:](lab1)
+### [Lab 2:](lab2)
