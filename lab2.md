@@ -15,10 +15,12 @@
 
 ```bash
 echo "Make any prefix file you want" > prefix.txt
+
 md5collgen -p prefix.txt -o out1.bin out2.bin
 
 diff out1.bin out2.bin
 # they should differ
+
 md5sum out1.bin
 md5sum out2.bin
 # they should have the same hash value even though they differ in content
