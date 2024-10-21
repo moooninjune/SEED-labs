@@ -10,6 +10,7 @@
    2. **Collision-resistance property:**
    
       It should be computationally infeasible to find two different inputs (M1 and M2) that result in the same hash value `(hash(M1) = hash(M2))`.
+      
 
 > **MD5 (Message-Digest Algorithm 5)** is a hashing algorithm that takes an **input** in blocks of `512 bits (or 64 bytes)` and produces an **output**: `128-bit hash value`. It’s unsuitable for secure applications; better alternative is `SHA-256`.
 
