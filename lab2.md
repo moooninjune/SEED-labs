@@ -27,3 +27,4 @@ md5sum out2.bin
 ```
 
 ---
+## Task 2: Generating Two Different Files with the Same MD5 Hash:
