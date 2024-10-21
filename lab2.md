@@ -25,3 +25,5 @@ md5sum out1.bin
 md5sum out2.bin
 # they should have the same hash value even though they differ in content
 ```
+
+---
