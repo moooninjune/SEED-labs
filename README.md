@@ -1,5 +1,5 @@
 # SEED-Crypto-Lab
 
-[LAB 1]{SEED-Crypto-Lab/lab1.md}
+[LAB 1](https://github.com/moooninjune/SEED-Crypto-Lab/blob/main/lab1.md)
 
-## [LAB 2]{./lab2}
+## [LAB 2](./lab2)
