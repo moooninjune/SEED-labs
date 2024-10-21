@@ -14,4 +14,6 @@ Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(ea
      tr 'ytn' 'THE' < ciphertext.txt > out.txt
      tr 'vup' 'AND' < ciphertext.txt > out1.txt
      ```
+     *Remember that tr treats each character individually and not as a pair.
+  4. 4)	Keep finding patterns until you get the final original text.
 
