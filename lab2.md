@@ -5,7 +5,9 @@
 
 #### A secure one-way hash function must satisfy two key properties:
 1. **One-way property:**
+   
    Given a hash value (h), it should be extremely difficult to find the original input (M) such that `hash(M) = h`.
 3. **Collision-resistance property:**
+   
    It should be computationally infeasible to find two different inputs (M1 and M2) that result in the same hash value `(hash(M1) = hash(M2))`.
 
