@@ -4,6 +4,7 @@
 > **Hashing** is about taking any input (like a file or a message) and converting it into a fixed-size string of characters, known as a hash value.
 > Used to ensure that data has not been altered during transmission. When the data is received or retrieved, the hash value is **recalculated and compared to the original hash**. If they match, the data is intact; if not, it has been altered.
 
+
 **A secure one-way hash function must satisfy two key properties:**
    1. **One-way property:**
    
@@ -14,6 +15,7 @@
       
 
 > **MD5 (Message-Digest Algorithm 5)** is a hashing algorithm that takes an **input** in blocks of `512 bits (or 64 bytes)` and produces an **output**: `128-bit hash value`. It’s unsuitable for secure applications; better alternative is *SHA-256*.
+
 
 ```bash
 echo "Make any prefix file you want" > prefix.txt
@@ -29,6 +31,7 @@ md5sum out2.bin
 # they should have the same hash value even though they differ in content
 ```
 ---
+
 **Question 1.** If the length of your prefix file is not multiple of 64, what is going to happen?
 Padding is added to ensure that the data aligns properly in blocks of 64 bytes.
 
