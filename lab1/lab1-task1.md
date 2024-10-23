@@ -4,6 +4,7 @@
 Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(each letter in the original text is replaced by another letter, where the replacement does not vary)*, find the original text using frequency analysis:
   1. Using the provided `freq.py` program, you’ll find the letters statistics.
      ```bash
+     # don't forget to change the permission!
      chmod +x freq.py
      ./freq.py
      ```
