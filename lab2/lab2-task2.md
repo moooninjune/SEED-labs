@@ -14,3 +14,5 @@ cat out2.bin suffix.txt > new2.bin
 3.	We find out that if inputs M and N have the same hash, adding the same suffix T to them will result in two outputs that have the same hash value.
 ```bash
 md5sum new1.bin new2.bin
+#they should have the same hash value
+```
