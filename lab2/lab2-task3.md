@@ -11,7 +11,7 @@ gcc array1.c -o array1
 
 2. Fill the program’s array with fixed values like 0x41 (which is ASCII for letter A).
 
-  (*we do this because it'll be easier to locate 200 A’s in the binary*)
+    (*we do this because it'll be easier to locate 200 A’s in the binary*)
 ```c
 #include <stdio.h>
 unsigned char xyz[200] = {
