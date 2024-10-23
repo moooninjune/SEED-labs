@@ -18,9 +18,9 @@ openssl enc -aes-128-ecb -d -in ecb_enc -out ecb_dec -K 00112233445566778899aabb
 
 - How much information can you recover by decrypting the corrupted file, if the encryption mode is `ECB`, `CBC`, `CFB`, or `OFB`?
 
-| Mode | Effect | |
-| ---- | ----- | -- |
-| ECB | **No error propagation**, only the block containing the corrupted byte is affected. The rest of the text remains intact. | ![ECB](https://github.com/moooninjune/SEED-Crypto-Lab/blob/267e12c4b3678fb6ea01bca9f4c2d4ac312dd2e1/images/lab1-task3-pic.jpg) |
-| CBC | The corrupted block and the following block become unreadable. This mode shows a more significant impact because of the chaining nature. |
-| CFB | Like CBC, the corrupted byte affects both the corrupted block and the next blocks, leading to ***more*** distortion. |
-| OFB | **No error propagation**, only the block containing the corruption is affected, while subsequent blocks remain unaffected. |
+| Mode | Effect | Explanation |
+| ---- | ------ | ----------- |
+| ECB | ![ECB](https://github.com/moooninjune/SEED-Crypto-Lab/blob/267e12c4b3678fb6ea01bca9f4c2d4ac312dd2e1/images/lab1-task3-pic.jpg) | **No error propagation**, only the block containing the corrupted byte is affected. The rest of the text remains intact. |
+| CBC | ![CBC]( | The corrupted block and the following block become unreadable. This mode shows a more significant impact because of the chaining nature. |
+| CFB | ![CFB]( | Like CBC, the corrupted byte affects both the corrupted block and the next blocks, leading to ***more*** distortion. |
+| OFB | ![OFB]( | **No error propagation**, only the block containing the corruption is affected, while subsequent blocks remain unaffected. |
