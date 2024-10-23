@@ -11,7 +11,7 @@ gcc array1.c -o array1
 
 2. Fill the program’s array with fixed values like 0x41 (which is ASCII for letter A).
 
-3. We want to divide the executable file *into three parts:* a prefix (must be multiple of 64 bytes), a 128-byte region, and a suffix. Use the hex editor `bless` to determine the position where the array begins and ends.
+3. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
 ```bash
 ls -l array1
 -rwxrwxr-x 1 seed seed 16992 Oct 19 07:18 array1
