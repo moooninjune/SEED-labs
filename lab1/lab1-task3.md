@@ -22,5 +22,4 @@ cat header cbc_body > cbc_new.bmp
 
 - Display the encrypted picture using the picture viewing program `eog filename`.
 
-![Encrypted Picture using ECB]
-![Encrypted Picture using CBC]
+![Encrypted Picture using ECB vs. CBC](https://github.com/moooninjune/SEED-Crypto-Lab/blob/52b36498308019eb0604a6cee747b4eaf3e60b04/images/lab1-task3-pic.jpg)
