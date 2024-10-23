@@ -8,7 +8,9 @@ Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(ea
      chmod +x freq.py
      ./freq.py
      ```
+    
   2. Make use of these: [Letters frequency](https://en.wikipedia.org/wiki/Frequency_analysis), [Bigram frequency](https://en.wikipedia.org/wiki/Bigram), [Trigram frequency](https://en.wikipedia.org/wiki/Trigram).
+  
   3. Use the command `tr` to change the letters back to the original text.
      (We notice that *ytn* is probably *the*, and *vup* is probably *and*, and so on).
      ```bash
@@ -16,6 +18,7 @@ Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(ea
      tr 'vup' 'AND' < ciphertext.txt > out1.txt
      ```
      *Remember that tr treats each character individually and not as a pair.
+  
   4. Keep finding patterns until you get the final original text.
 
 
