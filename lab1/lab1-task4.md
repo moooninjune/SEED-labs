@@ -2,9 +2,9 @@
 
 ### Revision:
 
-- You select a cipher type (e.g., AES), and then choose a mode of operation (e.g., CFB, ECB, CBC) based on the security requirements and the nature of your data.
+- You select a cipher type (e.g., AES), and then choose a mode of operation (e.g., CFB, ECB, CBC) based on the security requirements.
 
-- For block ciphers, when the size of a plaintext is not a multiple of the block size, padding may be required.
+- For block ciphers, when the size of a plaintext is not a multiple of the block size, *padding* may be required.
 
 | Concept | 1 | 2 |
 | ------- | ---------- | -------- |
@@ -15,3 +15,13 @@
 > Hexadecimal Representation: Each pair of hex digits represents one byte.
 > 
 > Example: 112233445566 → 6 bytes: 11, 22, 33, 44, 55, 66 (total 6 pairs)
+
+1. Use ECB, CBC, CFB, and OFB modes to encrypt 3 files (you can pick any cipher).
+```bash
+
+```
+
+2. To inspect the padding, we decrypt using `openssl enc` *(you must use the option `-nopad` because decryption removes the padding by default).*
+```bash
+openssl enc -aes-128-cbc -d -in f1.enc -out f1_dec.txt -nopad
+```
