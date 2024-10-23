@@ -71,6 +71,7 @@ md5collgen -p prefix -o out1 out2
 tail -c +12480 array1 > suffix
 tail -c 128 out1 > p
 tail -c 128 out2 > q
+# The numbers in head & tail are decimal !!
 
 cat p suffix > new1
 cat q suffix > new2
