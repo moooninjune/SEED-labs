@@ -21,3 +21,4 @@ cat header cbc_body > cbc_new.bmp
 ```
 
 - Display the encrypted picture using the picture viewing program `eog filename`.
+![Encrypted Picture using ECB](/images/Picture1.png)
