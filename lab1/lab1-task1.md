@@ -12,7 +12,7 @@ Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(ea
   2. Make use of these: [Letters frequency](https://en.wikipedia.org/wiki/Frequency_analysis), [Bigram frequency](https://en.wikipedia.org/wiki/Bigram), [Trigram frequency](https://en.wikipedia.org/wiki/Trigram).
   
   3. Use the command `tr` to change the letters back to the original text.
-     - (We notice that *ytn* is probably *the*, and *vup* is probably *and*, and so on).
+      - (We notice that *ytn* is probably *the*, and *vup* is probably *and*, and so on).
     
      ```bash
      tr 'ytn' 'THE' < ciphertext.txt > out.txt
