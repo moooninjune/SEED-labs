@@ -13,6 +13,7 @@ Given a ciphertext encrypted using a **monoalphabetic substitution cipher** *(ea
   
   3. Use the command `tr` to change the letters back to the original text.
      - (We notice that *ytn* is probably *the*, and *vup* is probably *and*, and so on).
+    
      ```bash
      tr 'ytn' 'THE' < ciphertext.txt > out.txt
      tr 'vup' 'AND' < ciphertext.txt > out1.txt
