@@ -5,7 +5,7 @@
 ```bash
 md5collgen -p prefix.txt -o out1.bin out2.bin
 ```
-2.	Create a Suffix File (T) with any data. Concatenate the Files with the Suffix. This will create two new files: Calculate the MD5 Hashes of the Output Files.
+2.	Create a Suffix File (T) with any data, concatenate the Files with the Suffix. This will create two new files: Calculate the MD5 Hashes of the Output Files.
 ```bash
 echo "I'm the suffix file!" > suffix.txt
 cat out1.bin suffix.txt > new1.bin
