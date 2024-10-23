@@ -6,3 +6,16 @@ openssl enc -aes-128-ecb -e -in pic_original.bmp -out ecb_pic.bin -K 00112233445
 
 openssl enc -aes-128-ecb -e -in pic_original.bmp -out ecb_pic.bin -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 ```
+
+- We need to get the **header** from the original picture (for the .bmp file, the first 54 bytes contain the header information about the picture) to the encrypted picture, and the **data** from the original picture (from offset 55 to the end of the file), and then **combine** the header and data together into the new encrypted file.
+```bash
+head -c 54 pic_original.bmp > header
+
+tail -c +55 ecb_pic.bin > ecb_body
+cat header ecb_body > ecb_new.bmp
+
+tail -c +55 cbc_pic.bin > cbc_body
+cat header cbc_body > cbc_new.bmp
+```
+
+- Display the encrypted picture using the picture viewing program `eog filename`.
