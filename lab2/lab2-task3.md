@@ -48,7 +48,7 @@ printf("\n");
 
 3. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
 
-![Bless command output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/474a7bbc1a830b1a58cdf82838688d9913f0ca2b/images/lab2-task3-bless.png)
+![Bless command output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/ff93ab992f025efe9781d1648e18262bdb492e13/images/lab2-task3-bless.png)
 
 > We found the total program size = 16992, then we found where the array **starts at = 12320 (in decimal)** and **ends at = 12519**. We want to create a prefix & a suffix files to save all the content except we want **128Bytes** from the middle of the array to be missing!
 
