@@ -17,3 +17,23 @@ ls -l array1
 -rwxrwxr-x 1 seed seed 16992 Oct 19 07:18 array1
 # this shows the total program size = 16992
 ```
+
+4. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
+```bash
+head -c 12352 array1 > prefix
+
+md5collgen -p prefix -o out1 out2
+
+tail -c +12480 array1 > suffix
+tail -c 128 out1 > p
+tail -c 128 out2 > q
+
+cat p suffix > new1
+cat q suffix > new2
+
+diff new1 new2
+# they should differ
+
+md5sum new1 new2
+# they should have the same hash
+```
