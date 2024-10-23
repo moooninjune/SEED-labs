@@ -19,6 +19,8 @@
 
 ---
 ### [Lab 2: MD5 Collision Attack Lab](lab2)
+- Check out [SEED Lab 2](https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_MD5_Collision/) for more info.
+
 1. [Task 1: Generating Two Different Files with the Same MD5 Hash](/lab2/lab2-task1.md)
 2. [Task 2: Understanding MD5’s Property](/lab2/lab2-task2.md)
 3. [Task 3: Generating Two Executable Files with the Same MD5 Hash](/lab2/lab2-task3.md)
