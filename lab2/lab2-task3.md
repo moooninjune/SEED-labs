@@ -48,9 +48,13 @@ printf("\n");
 
 3. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
 
-![Using the bless command](https://github.com/moooninjune/SEED-Crypto-Lab/blob/474a7bbc1a830b1a58cdf82838688d9913f0ca2b/images/lab2-task3-bless.png)
+![Bless command output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/474a7bbc1a830b1a58cdf82838688d9913f0ca2b/images/lab2-task3-bless.png)
 
-5. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
+> We found the total program size = 16992, then we found where the array **starts at = 12320 (in decimal)** and **ends at = 12519**. We want to create a prefix & a suffix files to save all the content except we want **128Bytes** from the middle of the array to be missing!
+
+> So, the prefix will start from 0 to 12352 (from the beginning of the array & is a multiple of 64), and the suffix will start from 12480 (from the end of the array & keeping only 128Bytes in-between) to the end of the code.
+
+4. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
 
 > MD5 (prefix || P) = MD5 (prefix || Q)
 
