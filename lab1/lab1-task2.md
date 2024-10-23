@@ -14,7 +14,7 @@ openssl enc -aes-128-cfb -e -in plaintext.txt -out cipher2.bin -K 00112233445566
 openssl enc -bf-cbc -e -in plaintext.txt -out cipher3.bin -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 ```
 
-**NOTES:**
+### NOTES:
 | Option | Meaning |
 | ------ | ------ |
 | -in file | input file |
