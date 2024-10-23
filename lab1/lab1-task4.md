@@ -24,7 +24,8 @@ openssl enc -aes-128-cbc -e -in f2.txt -out f2.enc -K 00112233445566778899aabbcc
 # repeat the process for the other modes ECB, CFB, OFB
 ```
 
-2. To inspect the padding, we decrypt using `openssl enc` *(you must use the option `-nopad` because decryption removes the padding by default).*
+2. To inspect the padding, we decrypt using `openssl enc`
+*(you must use the option `-nopad` because decryption removes the padding by default).*
 ```bash
 openssl enc -aes-128-cbc -d -in f1.enc -out f1.dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 openssl enc -aes-128-cbc -d -in f2.enc -out f2.dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
