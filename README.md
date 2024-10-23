@@ -6,6 +6,6 @@
 
 - Check out [SEED Project Labs](https://seedsecuritylabs.org/Labs_20.04/) for more information!
 
-## List of Labs:
+# List of Labs:
 1. [Lab 1: Secret-Key Encryption Lab](lab1)
 2. [Lab 2: MD5 Collision Attack Lab](lab2)
