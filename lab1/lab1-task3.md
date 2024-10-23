@@ -7,7 +7,7 @@ openssl enc -aes-128-ecb -e -in pic_original.bmp -out ecb_pic.bin -K 00112233445
 openssl enc -aes-128-ecb -e -in pic_original.bmp -out ecb_pic.bin -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 ```
 
-- We need to get the **header** from the original picture (for the .bmp file, the first 54 bytes contain the header information about the picture) to the encrypted picture.
+- We need to get the **header** (for the .bmp file, the first 54 bytes contain the header info.) from the original picture to the encrypted picture.
 - Then the **data** from the original picture (from offset 55 to the end of the file).
 - Then **combine** the header and data together into the new encrypted file.
 ```bash
