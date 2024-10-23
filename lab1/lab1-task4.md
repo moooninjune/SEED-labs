@@ -32,3 +32,5 @@ openssl enc -aes-128-cbc -d -in f2.enc -out f2.dec -nopad -K 0011223344556677889
 ```
 
 3. You can then use a hex tool `hexdump -C` to view the contents of the decrypted files.
+
+![hexdump output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/6315cb5e7d5eb8f8086c88c8d31ef0e92add75ea/images/lab1-task4-hexdump.png)
