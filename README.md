@@ -7,6 +7,8 @@
 ## List of Labs:
 
 ### [Lab 1: Secret-Key Encryption Lab](lab1)
+- Check out [SEED Lab 1](https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_Encryption/) for more info.
+
 1. [Task 1: Frequency Analysis](/lab1/lab1-task1.md)
 2. [Task 2: Encryption using Different Ciphers and Modes](/lab1/lab1-task2.md)
 3. [Task 3: Encryption Mode – ECB vs. CBC](/lab1/lab1-task3.md)
