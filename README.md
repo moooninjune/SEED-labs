@@ -2,7 +2,7 @@
 
 - This explanation was written by me, for myself. I'm not a professional, just a student trying to learn more about cryptography. I wanted to share it in case anyone else finds it helpful. If you notice any mistakes, I hope you'll understand! :)
 
-- Check out [SEED Project](https://seedsecuritylabs.org/labsetup.html) for more information!
+- Check out [SEED Project Cryptography Labs](https://seedsecuritylabs.org/Labs_20.04/Crypto/) for more information!
 
 ## List of Labs:
 
