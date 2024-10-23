@@ -10,8 +10,22 @@ gcc array1.c -o array1
 ```
 
 2. Fill the program’s array with fixed values like 0x41 (which is ASCII for letter A).
+```c
+#include <stdio.h>
+unsigned char xyz[200] = {
+/* The actual contents of this array are up to you */
+};
+int main()
+{
+int i;
+for (i=0; i<200; i++){
+printf("%x", xyz[i]);
+}
+printf("\n");
+}
+```
 
-3. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
+4. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
 ```bash
 ls -l array1
 -rwxrwxr-x 1 seed seed 16992 Oct 19 07:18 array1
