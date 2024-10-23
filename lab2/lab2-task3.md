@@ -19,6 +19,10 @@ ls -l array1
 ```
 
 4. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
+
+> MD5 (prefix || P) = MD5 (prefix || Q)
+> MD5 (prefix || P || suffix) = MD5 (prefix || Q || suffix)
+
 ```bash
 head -c 12352 array1 > prefix
 
