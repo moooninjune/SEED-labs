@@ -15,12 +15,12 @@ openssl enc -bf-cbc -e -in plaintext.txt -out cipher3.bin -K 0011223344556677889
 ```
 
 **NOTES:**
--in file --> input file
--out file --> output file
--e --> encrypt
--d --> decrypt
--K/-iv --> key/iv in hex is the next argument *(K is capital letter)*
--[pP] --> print the iv/key (then exit if -P)
+- in file --> input file
+- out file --> output file
+- e --> encrypt
+- d --> decrypt
+- K/-iv --> key/iv in hex is the next argument *(K is capital letter)*
+- [pP] --> print the iv/key (then exit if -P)
 
 
 
