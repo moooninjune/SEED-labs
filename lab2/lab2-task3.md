@@ -81,3 +81,5 @@ diff new1 new2
 md5sum new1 new2
 # they should have the same hash
 ```
+
+![Output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/37a15f4508fe12c82c8e70d0ea1cf657623fa8ee/images/lab2-task3-output.png)
