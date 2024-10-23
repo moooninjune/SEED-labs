@@ -1,5 +1,7 @@
 # SEED-Crypto-Lab
 
+- This explanation was written by me, for myself. I'm not a professional, just a student learning. I wanted to share it in case anyone else finds it helpful. If you notice any mistakes, I hope you'll understand!
+
 ## List of Labs:
 
 ### [Lab 1: Secret-Key Encryption Lab](lab1)
