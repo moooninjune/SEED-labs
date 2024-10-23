@@ -16,4 +16,6 @@
 1. [Task 1: Generating Two Different Files with the Same MD5 Hash](/lab2/lab2-task1.md)
 2. [Task 2: Understanding MD5’s Property](/lab2/lab2-task2.md)
 3. [Task 3: Generating Two Executable Files with the Same MD5 Hash]
-4. [ Task 4: Making the Two Programs Behave Differently]
+4. [Task 4: Making the Two Programs Behave Differently]
+
+---
