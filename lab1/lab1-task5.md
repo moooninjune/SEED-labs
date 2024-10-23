@@ -20,7 +20,7 @@ openssl enc -aes-128-ecb -d -in ecb_enc -out ecb_dec -K 00112233445566778899aabb
 
 | Mode | Effect | Explanation |
 | ---- | ------ | ----------- |
-| ECB | ![ECB]( | **No error propagation**, only the block containing the corrupted byte is affected. The rest of the text remains intact. |
-| CBC | ![CBC](https://github.com/moooninjune/SEED-Crypto-Lab/blob/27280ba58e7a85201a06feac9f59b915b46799be/images/lab1-task5-cbc.png) | The corrupted block and the following block become unreadable. This mode shows a more significant impact because of the chaining nature. |
-| CFB | ![CFB]( | Like CBC, the corrupted byte affects both the corrupted block and the next blocks, leading to ***more*** distortion. |
-| OFB | ![OFB]( | **No error propagation**, only the block containing the corruption is affected, while subsequent blocks remain unaffected. |
+| ECB | ![ECB](https://github.com/moooninjune/SEED-Crypto-Lab/blob/4660286daf224061726c1baf2b272004662ad28b/images/lab1-task5-ecb.png) | **No error propagation**, only the block containing the corrupted byte is affected. The rest of the text remains intact. |
+| CBC | ![CBC](https://github.com/moooninjune/SEED-Crypto-Lab/blob/4660286daf224061726c1baf2b272004662ad28b/images/lab1-task5-cbc.png) | The corrupted block and the following block become unreadable. This mode shows a more significant impact because of the chaining nature. |
+| CFB | ![CFB](https://github.com/moooninjune/SEED-Crypto-Lab/blob/4660286daf224061726c1baf2b272004662ad28b/images/lab1-task5-cfb.png) | Like CBC, the corrupted byte affects both the corrupted block and the next blocks, leading to ***more*** distortion. |
+| OFB | ![OFB](https://github.com/moooninjune/SEED-Crypto-Lab/blob/4660286daf224061726c1baf2b272004662ad28b/images/lab1-task5-ofb.png) | **No error propagation**, only the block containing the corruption is affected, while subsequent blocks remain unaffected. |
