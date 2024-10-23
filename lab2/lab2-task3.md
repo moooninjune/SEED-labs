@@ -50,7 +50,7 @@ printf("\n");
 
 ![Bless command output](https://github.com/moooninjune/SEED-Crypto-Lab/blob/ff93ab992f025efe9781d1648e18262bdb492e13/images/lab2-task3-bless.png)
 
-> We found the total program size = 16992, then we found where the array **starts at = 12320 (in decimal)** and **ends at = 12519**. We want to create a prefix & a suffix files to save all the content except we want **128Bytes** from the middle of the array to be missing!
+> We found the total program size = 16992 (using `ls -l array1`, then we found where the array **starts at = 12320 (in decimal)** and **ends at = 12519**. We want to create a prefix & a suffix files to save all the content except we want **128Bytes** from the middle of the array to be missing!
 
 > So, the prefix will start from 0 to 12352 (from the beginning of the array & is a multiple of 64), and the suffix will start from 12480 (from the end of the array & keeping only 128Bytes in-between) to the end of the code.
 
@@ -61,9 +61,6 @@ printf("\n");
 > MD5 (prefix || P || suffix) = MD5 (prefix || Q || suffix)
 
 ```bash
-ls -l array1
-# this will show the total program size
-
 head -c 12352 array1 > prefix
 
 md5collgen -p prefix -o out1 out2
