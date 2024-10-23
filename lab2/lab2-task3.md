@@ -48,7 +48,7 @@ printf("\n");
 
 3. We want to divide the executable file into three parts: a *prefix* (must be multiple of 64 bytes), a *128-byte* region, and a *suffix*. Use the hex editor `bless` to determine the position where the array begins and ends.
 
-![Using the bless command,](/images/lab2-task3-bless)
+![Using the bless command,](/images/lab2-task3-bless,png)
 
 5. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
 
