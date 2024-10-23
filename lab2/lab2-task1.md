@@ -32,7 +32,7 @@ md5sum out2.bin
 ```
 ---
 
-1. **Question 1.** If the length of your prefix file is not multiple of 64, what is going to happen?
+1. #### Question 1. If the length of your prefix file is not multiple of 64, what is going to happen?
 
    Padding is added to ensure that the data aligns properly in blocks of 64 bytes.
 
