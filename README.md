@@ -5,3 +5,7 @@
 - Each lab has its own folder, where you'll find different tasks, with explanations, code, and outputs. If you're exploring, I hope these materials help you in your learning journey too!
 
 - Check out [SEED Project Labs](https://seedsecuritylabs.org/Labs_20.04/) for more information!
+
+## List of Labs:
+1. [Lab 1: Secret-Key Encryption Lab](lab1)
+2. [Lab 2: MD5 Collision Attack Lab](lab2)
