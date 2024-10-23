@@ -18,18 +18,18 @@ echo -n "12345" > f1.txt # 5 bytes
 echo -n "1234567890" > f2.txt # 10 bytes
 echo -n "1234567890123456" > f3.txt # 16 bytes
 
-openssl enc -aes-128-cbc -e -in f1.txt -out f1.enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
-openssl enc -aes-128-cbc -e -in f2.txt -out f2.enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
-openssl enc -aes-128-cbc -e -in f2.txt -out f2.enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -e -in f1.txt -out f1_cbc_enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -e -in f2.txt -out f2_cbc_enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -e -in f2.txt -out f2_cbc_enc -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 # repeat the process for the other modes ECB, CFB, OFB
 ```
 
 2. To inspect the padding, we decrypt using `openssl enc`
 *(you must use the option `-nopad` because decryption removes the padding by default).*
 ```bash
-openssl enc -aes-128-cbc -d -in f1.enc -out f1.dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
-openssl enc -aes-128-cbc -d -in f2.enc -out f2.dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
-openssl enc -aes-128-cbc -d -in f2.enc -out f2.dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -d -in f1_cbc_enc -out f1_cbc_dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -d -in f2_cbc_enc -out f2_cbc_dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+openssl enc -aes-128-cbc -d -in f2_cbc_enc -out f2_cbc_dec -nopad -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 ```
 
 3. You can then use a hex tool `hexdump -C` to view the contents of the decrypted files.
