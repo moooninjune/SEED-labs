@@ -4,11 +4,12 @@
 - This demonstrates an `MD5 collision`, where different inputs result in the same hash.
 
 1. Write and Compile the C Program, using `nano` to write and `gcc` to compile.
-2. Fill the program’s array with fixed values like 0x41 (which is ASCII for letter A).
 ```bash
 nano array1.c
 gcc array1.c -o array1
 ```
+
+2. Fill the program’s array with fixed values like 0x41 (which is ASCII for letter A).
 
 3. We want to divide the executable file *into three parts:* a prefix (must be multiple of 64 bytes), a 128-byte region, and a suffix. Use the hex editor `bless` to determine the position where the array begins and ends.
 ```bash
