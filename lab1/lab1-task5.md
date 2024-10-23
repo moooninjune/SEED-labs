@@ -17,3 +17,9 @@ openssl enc -aes-128-ecb -d -in ecb_enc -out ecb_dec -K 00112233445566778899aabb
 ```
 
 - How much information can you recover by decrypting the corrupted file, if the encryption mode is `ECB`, `CBC`, `CFB`, or `OFB`?
+
+| Mode | Effect | Explanation |
+| ECB |
+| CBC |
+| CFB |
+| OFB |
