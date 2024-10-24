@@ -1,6 +1,6 @@
 ## Task 3: Generating Two Executable Files with the Same MD5 Hash
 
-- Your job is to create two different versions of a `C program`, such that the contents of their xyz arrays are different, but the hash values of the executables are the same.
+- Your job is to create two different versions of a `C program`, such that the contents of their arrays are different, but the hash values of the executables are the same.
 - This demonstrates an `MD5 collision`, where different inputs result in the same hash.
 
 1. Write and Compile the C Program, using `nano` to write and `gcc` to compile.
