@@ -1,6 +1,6 @@
 # Lab 3: RSA Public-Key Encryption and Signature Lab
 
-## Revision of RSA:
+## RSA:
 
 ![RSA-algorithm](https://github.com/moooninjune/SEED-Crypto-Lab/blob/dca52ec52a3bcfee12e9a5a7522003594a29bd5f/images/lab3-RSA-algorithm.png)
 
@@ -10,6 +10,8 @@
 ---
 ## BIGNUM APIs:
 All the big number APIs can be found from https://linux.die.net/man/3/bn.
+
+**Let's explain some important ones (that we will use in this lab):**
 
 1. Createing a new context for BIGNUM operations in OpenSSL. This context is essential for efficiently managing **temporary** BIGNUMs used in various cryptographic computations.
 ```c
