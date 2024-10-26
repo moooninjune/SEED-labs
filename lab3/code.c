@@ -2,6 +2,15 @@
 #include <openssl/bn.h>
 #define NBITS 128
 
+void printBN(char *msg, BIGNUM *a, BIGNUM *b)
+{
+    char *number_str_a = BN_bn2hex(a);
+    char *number_str_b = BN_bn2hex(b);
+    printf("%s (%s,%s)\n", msg, number_str_a, number_str_b);
+    OPENSSL_free(number_str_a);
+    OPENSSL_free(number_str_b);
+}
+
 int main()
 {
     BN_CTX *ctx = BN_CTX_new();
