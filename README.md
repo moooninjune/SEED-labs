@@ -7,3 +7,4 @@
 # List of Labs:
 1. [Lab 1: Secret-Key Encryption Lab](lab1)
 2. [Lab 2: MD5 Collision Attack Lab](lab2)
+3. [Lab 3: RSA Public-Key Encryption and Signature Lab](lab3)
