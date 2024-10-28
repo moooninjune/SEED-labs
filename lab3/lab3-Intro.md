@@ -105,3 +105,5 @@ python3 -c 'print("A top secret!".encode("utf-8").hex())'
 ```bash
 python3 -c 'print(bytes.fromhex("4120746f702073656372657421").decode("utf-8"))'
 ```
+---
+- All the codes I used in this lab are from https://github.com/li-xin-yi/seedlab. (Thanks u saved my life <3)
