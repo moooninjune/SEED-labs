@@ -2,13 +2,14 @@
 
 ## RSA:
 
-RSA is a **public-key** cryptosystem that is used for secure communication. The algorithm first generates two large random prime numbers, and then use them to generate public and private key pairs, which can be used to do **encryption, decryption, and digital signature generation and verification.**
+> RSA is a **public-key** cryptosystem, used for secure communication.
 
-
-![RSA-algorithm](https://github.com/moooninjune/SEED-Crypto-Lab/blob/dca52ec52a3bcfee12e9a5a7522003594a29bd5f/images/lab3-RSA-algorithm.png)
+> The algorithm first generates two large random prime numbers, and then use them to generate public and private key pairs, which can be used to do **encryption, decryption, and digital signature generation and verification.**
 
 - **Encrypt** with Public Key, **Decrypt** with Private Key.
 - **Sign** with Private Key, **Verify** with Public Key.
+
+![RSA-algorithm](https://github.com/moooninjune/SEED-Crypto-Lab/blob/dca52ec52a3bcfee12e9a5a7522003594a29bd5f/images/lab3-RSA-algorithm.png)
 
 ## BIGNUM APIs:
 > We will be using the Big Number library provided by `openssl`, because RSA algorithm involves computations on large numbers and it cannot be directly conducted using simple arithmetic operators in programs.
