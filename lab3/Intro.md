@@ -2,9 +2,7 @@
 
 ## RSA:
 
-RSA is a public-key cryptosystem, used for secure communication. 
-
-The RSA algorithm first generates two large random prime numbers, and then use them to generate public and private key pairs, which can be used to do encryption, decryption, and digital signature generation and verification.
+RSA is a **public-key** cryptosystem that is used for secure communication. The algorithm first generates two large random prime numbers, and then use them to generate public and private key pairs, which can be used to do **encryption, decryption, and digital signature generation and verification.**
 
 
 ![RSA-algorithm](https://github.com/moooninjune/SEED-Crypto-Lab/blob/dca52ec52a3bcfee12e9a5a7522003594a29bd5f/images/lab3-RSA-algorithm.png)
