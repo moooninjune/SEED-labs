@@ -36,6 +36,3 @@ int main()
 
     return 0;
 }
-
-// python3 -c 'print("A top secret!".encode("utf-8").hex())'
-// python -c 'print("A top secret!".encode("hex"))'

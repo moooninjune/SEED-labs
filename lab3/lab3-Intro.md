@@ -1,6 +1,6 @@
 # Lab 3: RSA Public-Key Encryption and Signature Lab
 
-## RSA:
+## RSA Algorithm:
 
 > RSA is a **public-key** cryptosystem, used for secure communication.
 
@@ -90,8 +90,18 @@ BN_clear_free(a)
 OPENSSL_free(number_str);
 ```
 
-- We will also use the following command for **compilation**:
+## Other Commands to know:
+
+1. We will use the following command for **compilation**:
 ```bash
 # the -lcyrpto tells the compiler to use the crypto library
 gcc -o prog prog.c -lcrypto
+```
+2. To convert a plain ASCII string to a hex string:
+```bash
+python3 -c 'print("A top secret!".encode("utf-8").hex())'
+```
+3. To convert a hex string back to to a plain ASCII string:
+```bash
+python3 -c 'print(bytes.fromhex("4120746f702073656372657421").decode("utf-8"))'
 ```
