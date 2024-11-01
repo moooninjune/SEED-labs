@@ -178,6 +178,7 @@ printenv PATH
 printenv PATH
 /home/seed/lab4/task6:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:.
 ```
+- **Note:** If you changed PATH in your current terminal session using `export`, this change is temporary and will only last until you close the terminal. When you open a new terminal session, PATH will revert to its original value.
 
 3) Now try to run the `ls` command ;)
 ```bash
@@ -187,5 +188,4 @@ Hello! This is not the ls command anymore! I edited it!
 $ /bin/ls #this one will list all the files just right
 ls ls.c task6 task6.c
 ```
-
-- **Note:** If you changed PATH in your current terminal session using `export`, this change is temporary and will only last until you close the terminal. When you open a new terminal session, PATH will revert to its original value.
+- Why did it run our code instead of executing the `/bin/ls`?
