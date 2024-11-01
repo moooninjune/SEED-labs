@@ -14,7 +14,7 @@ int main()
     argv[0] = "/usr/bin/env";
     argv[1] = NULL;
     execve("/usr/bin/env", argv, NULL);
-    
+
     return 0 ;
 }
 
@@ -27,4 +27,6 @@ execve("/usr/bin/env", argv, environ);
 
 3) Are the environment variables automatically inherited by the new program?
     
-    When the third arguments set as NULL, no output. But when it turns to environ, all environment variables are printed. Because `environ` is the user environment which holds those environment variables.
+    When the third arguments set as NULL, no output.
+    
+    But when it turns to environ, all environment variables are printed. Because `environ` is the user environment which holds those environment variables.

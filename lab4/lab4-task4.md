@@ -1,7 +1,10 @@
 ##  Task 4: Environment Variables and system(): 
 How are environment variables affected when a new program is executed via `system()`?
 
-The function `system()` is used to execute a command, but unlike `execve()`, it executes `/bin/sh -c command`, i.e., it executes `/bin/sh`, and asks the shell to execute the `command`.
+| Function | Execution | Environment Variables Inheritance | Security |
+| -------- | --------- | ---------- | -------- |
+| `execve()` | Directly runs the specified command | Only the environment variables explicitly passed to it | Lower risk because behavior is more predictable |
+| `system()` | Runs `/bin/sh -c command`, using a shell to execute the command | Inherits all environment variables from the caller (e.g., `PATH`) | Higher risk, as inherited variables (like `PATH`) can alter shell behavior |
 
 - Compile and run this program to verify this:
 ```c
