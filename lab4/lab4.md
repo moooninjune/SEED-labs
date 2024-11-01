@@ -21,10 +21,10 @@ unset VAR_NAME
 ```
 3) Accessing an environment variable:
 ```bash
-# $VAR_NAME returns the home directory path.
 $VAR_NAME
-# You can also display the value of a variable
+# $VAR_NAME returns the home directory path.
 echo $VAR_NAME
+# You can also display the value of a variable using echo
 ```
 4) Viewing all environment variables (list all the current environment variables):
 ```bash
@@ -113,7 +113,7 @@ execve("/usr/bin/env", argv, environ);
 
 3) Are the environment variables automatically inherited by the new program?
     
-        When the third arguments set as NULL, no output. But when it turns to environ, all environment variables are printed. Because `environ` is the user environment which holds those environment variables.
+    When the third arguments set as NULL, no output. But when it turns to environ, all environment variables are printed. Because `environ` is the user environment which holds those environment variables.
 
 ##  Task 4: Environment Variables and system(): 
 How are environment variables affected when a new program is executed via `system()`?
