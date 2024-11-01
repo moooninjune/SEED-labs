@@ -1,6 +1,6 @@
 # SEED-Crypto-Lab
 
-- This explanation was written by me, for myself. I'm not a professional, just a student trying to learn more about cryptography :)
+- This explanation was written by me, for myself. I'm not a professional, just a student trying to learn more :)
 
 - Check out [SEED Project Labs](https://seedsecuritylabs.org/Labs_20.04/) for more info!
 
