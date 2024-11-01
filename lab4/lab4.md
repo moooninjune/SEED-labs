@@ -106,8 +106,9 @@ int main()
 ```
 2) Change the program's ownership to **root**, and make it a **Set-UID** program.
 ```bash
- sudo chown root prog
- sudo chmod 4755 foo 
+ sudo chown root setuid #setuid is the program's name
+ # changes the ownership of the file foo to the user root
+ sudo chmod 4755 setuid 
  # the first (4) represents the Set-UID bit
  # (7) for owner: +rwx
  # (5) for group: +rx
@@ -117,13 +118,18 @@ int main()
 
 > When any user runs `./prog`, the program will execute with **root** privileges, allowing actions that a normal user usually cannot perform.
 
-3) In your shell (you need to be in a **normal user account**, not the root account), use the `export`
+3) In your shell (you need to be in a **normal user account**, not the root account, check that by using the command `whoami`), use the `export`
 command to set the following environment variables:
 ```bash
 export PATH
 export LD_LIBRARY_PATH
-export ANY_NAME #this one is defined by you
+export MY_VAR=Hello #this one is defined by you
 ```
 > These environment variables are set in the user’s shell process. After you run `./prog`, , the shell forks a child process, and uses the child to run the program.
 
 - Check whether all the environment variables you set in the shell process (parent) get into the Set-UID child process.
+```bash
+./setuid | grep PATH
+./setuid | grep LD_LIBRARY_PATH
+./setuid | grep MY_VAR
+```
