@@ -87,3 +87,10 @@ export LD_PRELOAD=./libmylib.so.1.0.1
 When `myprog` runs, it uses the environment (including `LD_PRELOAD`) of its owner, not the user who executed it.
 
 Setting `LD_PRELOAD` can modify the behavior of `myprog`, but this only applies if the environment of the owner allows it.
+
+| **Execution Context**                               | **Program Behavior**           | **Explanation**                                                      |
+|-----------------------------------------------------|--------------------------------|----------------------------------------------------------------------|
+| Regular Program, Normal User                        | No Sleep                       | Custom `sleep` from `libmylib.so.1.0.1` is executed.               |
+| Set-UID Root Program, Normal User                   | Actually Sleep                 | Ignores `LD_PRELOAD`, uses standard `sleep` (root's environment).   |
+| Set-UID Root Program, Root User                     | No Sleep                       | `LD_PRELOAD` is respected; custom `sleep` is executed.              |
+| Set-UID User1 Program, Non-root, Non-user1 Normal User | Actually Sleep                 | Ignores `LD_PRELOAD`, executes standard `sleep` (user1's environment). |
