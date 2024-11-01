@@ -103,7 +103,7 @@ int main()
     execve("/usr/bin/env", argv, NULL); 
     return 0 ;
 }
-//  This program simply executes a program called /usr/bin/env, which prints out the environment variables of the current process.
+/* This program simply executes a program called /usr/bin/env, which prints out the environment variables of the current process. */
 ```
 
 2) Change the invocation of `execve()` to the following:
