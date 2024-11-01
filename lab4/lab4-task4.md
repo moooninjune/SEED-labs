@@ -3,8 +3,8 @@ How are environment variables affected when a new program is executed via `syste
 
 | Function | Execution | Environment Variables Inheritance | Security |
 | -------- | --------- | ---------- | -------- |
-| `execve()` | Directly runs the specified command | Only the environment variables explicitly passed to it | Lower risk because behavior is more predictable |
-| `system()` | Runs `/bin/sh -c command`, using a shell to execute the command | Inherits all environment variables from the caller (e.g., `PATH`) | Higher risk, as inherited variables (like `PATH`) can alter shell behavior |
+| `execve()` | Directly runs the specified command. | Only the environment variables explicitly passed to it. | Lower risk because behavior is more predictable. |
+| `system()` | Runs `/bin/sh -c command`, using a shell to execute the command. | Inherits all environment variables from the caller (e.g., `PATH`). | Higher risk, as inherited variables (like `PATH`) can alter shell behavior. |
 
 - Compile and run this program to verify this:
 ```c
