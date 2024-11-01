@@ -55,6 +55,6 @@ ls ls.c task6 task6.c
 ```
 ### Why did it run our code instead of executing the `/bin/ls`?
 
-    Because the `PATH` environment variable looks for the command `ls` in the current diretory (that we provided) first since it's specified. When it finds that `ls` exists, it runs our program instead of the shell command.
+Because the `PATH` environment variable looks for the command `ls` in the current diretory (that we provided) first since it's specified. When it finds that `ls` exists, it runs our program instead of the shell command.
 
-    Which proves to us that **Set-UID** programs may run malicious files with root privileges if the path variable is altered.
+Which proves to us that **Set-UID** programs may run malicious files with root privileges if the path variable is altered.
