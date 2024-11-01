@@ -27,7 +27,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
     ```bash
     export LD_PRELOAD=./libmylib.so.1.0.1
     ```
-    - Compile myprog.c too:
+    - Compile `myprog.c` too:
     ```c
     /* myprog.c */
     #include <unistd.h>
