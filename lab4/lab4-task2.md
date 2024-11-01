@@ -4,6 +4,32 @@ In Unix, `fork()` creates a new process by duplicating the calling process. The 
 In this task, we would like to know whether the parent’s environment variables are inherited by the child process or not...
 
 1. Compile and run the program named `myprintenv.c`, save the output in `child.txt` file:
+```c
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+void printenv()
+{
+    int i = 0;
+    while (environ[i] != NULL) {
+        printf("%s\n", environ[i]);
+        i++; }
+}
+
+void main()
+{
+    pid_t childPid;
+    switch(childPid = fork()) {
+        case 0: /* child process */
+        printenv(); ➀
+        exit(0);
+    default: /* parent process */
+    //printenv(); 
+    exit(0); }
+}
+```
 
 2) For the 2nd step, make the parent do the `printenv()` function instead of the child. Compile and run the code again, and save the output in `parent.txt` file.
 ```c

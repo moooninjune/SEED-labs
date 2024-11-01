@@ -13,7 +13,7 @@ int main()
     return 0;
 }
 ```
-- We want to edit this code to run our own malicious code instead of `/bin/ls`. Edit the code and compile it, change its owner to root, and make it a **Set-UID** program. Name the program `ls`.
+- We want to edit this program to run our own malicious code instead of `/bin/ls`. Edit the code and compile it, change its owner to root, and make it a **Set-UID** program. Name the program `ls`.
 ```c
 #include <stdlib.h>
 #include <stdio.h>
@@ -25,11 +25,12 @@ int main()
 }
 ```
 ```bash
+gcc -o ls ls.c
 sudo chown root ls 
 sudo chmod 4755 ls #make it set-uid
 ```
 
-2) Now, if we write `ls`, it still runs the correct `/bin/ls` command. What we have to do is edit the environment variable `PATH` to our own path (where our `ls` program exists).
+2) Now, if we write `ls`, it still runs the correct `/bin/ls` command. What we have to do is to edit the environment variable `PATH` to look in where our `ls` program exists.
 ```bash
 export PATH=/home/seed/lab4/task6:$PATH
 ```
@@ -53,3 +54,7 @@ $ /bin/ls #this one will list all the files just right
 ls ls.c task6 task6.c
 ```
 - Why did it run our code instead of executing the `/bin/ls`?
+
+    Because the `PATH` environment variable looks for the command `ls` in the current diretory (that we provided) first since it's specified. When it finds that `ls` exists, it runs our program instead of the shell command.
+
+    Which proves to us that **Set-UID** programs may run malicious files with root privileges if the path variable is altered.
