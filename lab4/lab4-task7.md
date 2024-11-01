@@ -1,4 +1,4 @@
-## Task 7: The LD PRELOAD Environment Variable and Set-UID Programs:
+## Task 7: The LD_PRELOAD Environment Variable and Set-UID Programs:
 A **dynamic loader/linker** is the part of an operating system that loads (from storage to RAM) and links the shared libraries needed by an executable at run time.
 
 In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading shared libraries. **Two key environment variables affect this process:**
@@ -40,7 +40,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
     ```bash
     gcc -o myprog myprog.c
     ```
-    - Now run the program `./myprog` as a normal user:
+    - Now run the program `./myprog` as a normal program:
     ```bash
     # output
     I am not sleeping!
