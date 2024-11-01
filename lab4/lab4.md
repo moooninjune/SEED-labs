@@ -133,3 +133,7 @@ export MY_VAR=Hello #this one is defined by you
 ./setuid | grep LD_LIBRARY_PATH
 ./setuid | grep MY_VAR
 ```
+
+## Task 6: The PATH Environment Variable and Set-UID Programs:
+
+The `PATH` variable is an environment variable that tells the operating system where to look for executable files (programs) when you type a command in the terminal.
