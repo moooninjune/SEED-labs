@@ -21,7 +21,8 @@ unset VAR_NAME
 printenv #all
 printenv PWD #for specific search
 echo $PWD #same result as above
-
+```
+```bash
 #Or use the `env` command
 env #all
 env | grep PWD #for specific search
