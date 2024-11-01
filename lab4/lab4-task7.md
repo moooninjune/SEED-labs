@@ -88,9 +88,11 @@ When `myprog` runs, it uses the environment (including `LD_PRELOAD`) of its owne
 
 Setting `LD_PRELOAD` can modify the behavior of `myprog`, but this only applies if the environment of the owner allows it.
 
-| **Execution Context**                               | **Program Behavior**           | **Explanation**                                                      |
-|-----------------------------------------------------|--------------------------------|----------------------------------------------------------------------|
-| Regular Program, Normal User                        | No Sleep                       | Custom `sleep` from `libmylib.so.1.0.1` is executed.               |
-| Set-UID Root Program, Normal User                   | Actually Sleep                 | Ignores `LD_PRELOAD`, uses standard `sleep` (root's environment).   |
-| Set-UID Root Program, Root User                     | No Sleep                       | `LD_PRELOAD` is respected; custom `sleep` is executed.              |
-| Set-UID User1 Program, Non-root, Non-user1 Normal User | Actually Sleep                 | Ignores `LD_PRELOAD`, executes standard `sleep` (user1's environment). |
+| Scenario                                      | Output                | Explanation                                                                           |
+|-----------------------------------------------|-----------------------|---------------------------------------------------------------------------------------|
+| Regular Program, Normal User                  | I am not sleeping!    | The program uses the caller's environment, including `LD_PRELOAD`.                  |
+| Set-UID Root Program, Normal User             | actually sleep        | The program executes the standard `sleep` function since it ignores `LD_PRELOAD`.   |
+| Set-UID Root Program, Root User               | I am not sleeping!    | The root user’s environment is respected, allowing the custom `sleep` from `LD_PRELOAD` to execute. |
+| Set-UID User1 Program, Non-root, Non-user1 Normal User | actually sleep        | Similar to the Set-UID root scenario, it runs in the owner (user1) environment, ignoring the caller's `LD_PRELOAD`. |
+
+- **Caller:** This refers to the user who executes (calls) the program at runtime. For example, if User A runs a program, User A is the caller.
