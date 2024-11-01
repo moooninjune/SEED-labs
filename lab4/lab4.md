@@ -163,8 +163,9 @@ int main()
  # (5) for group: +rx
  # (5) for others: +rx
 ```
-- When the **Set-UID** bit is set, any user who executes the file will temporarily gain the permissions of the file's owner.
-- When any user runs `./prog`, the program will execute with **root** privileges, allowing actions that a normal user usually cannot perform.
+> When the **Set-UID** bit is set, any user who executes the file will temporarily gain the permissions of the file's owner.
+
+> When any user runs `./prog`, the program will execute with **root** privileges, allowing actions that a normal user usually cannot perform.
 
 3) In your shell (you need to be in a **normal user account**, not the root account), use the `export`
 command to set the following environment variables:
@@ -173,5 +174,6 @@ export PATH
 export LD_LIBRARY_PATH
 export ANY_NAME #this one is defined by you
 ```
-- These environment variables are set in the user’s shell process. After you run `./prog`, , the shell forks a child process, and uses the child to run the program.
-- Please check whether all the environment variables you set in the shell process (parent) get into the Set-UID child process.
+> These environment variables are set in the user’s shell process. After you run `./prog`, , the shell forks a child process, and uses the child to run the program.
+
+- Check whether all the environment variables you set in the shell process (parent) get into the Set-UID child process.
