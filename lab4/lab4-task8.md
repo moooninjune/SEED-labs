@@ -32,9 +32,11 @@ int main(int argc, char *argv[])
 }
 ```
 > If you (as Bob) run this program, can you compromise system integrity, such as deleting a non-writable file?
+
     Yes.
 
 2) Comment out the `system(command)` statement, and uncomment the `execve()` statement; the program will use `execve()` to invoke the command. Compile the program, and make it a root-owned **Set-UID**.
 
 > Do the attacks possible in Step 1 still work with this new setup? Describe and explain your observations regarding the differences in behavior between using `system()` and `execve()`.
+
     No.
