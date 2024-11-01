@@ -12,18 +12,19 @@ Environment variables are a set of **dynamic named values** that can affect the 
 ```bash
 export VAR_NAME=value
 export VAR_NAME="string with spaces"
-
-#Unsetting an environment variable:
+```
+2) Unsetting an environment variable:
+```bash
 unset VAR_NAME
 ```
-2) Viewing all environment variables (list all the current environment variables):
+3) Viewing all environment variables (list all the current environment variables):
 ```bash
 printenv #all
 printenv PWD #for specific search
 echo $PWD #same result as above
 ```
+- Or use the `env` command:
 ```bash
-#Or use the `env` command
 env #all
 env | grep PWD #for specific search
 ```
