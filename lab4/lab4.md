@@ -7,31 +7,22 @@ Environment variables are a set of **dynamic named values** that can affect the 
 
 - Environment variable names are typically written in all **uppercase**.
 
-If a program uses environment variables, but the programmer does not know that they are used, the program may have vulnerabilities.
-
 ### How Environment Variables Are Set and Accessed:
 1) Setting an environment variable (with a value):
 ```bash
 export VAR_NAME=value
 export VAR_NAME="string with spaces"
-```
-2) Unsetting an environment variable:
-```bash
+
+#Unsetting an environment variable:
 unset VAR_NAME
 ```
-3) Accessing an environment variable:
-```bash
-$VAR_NAME
-# $VAR_NAME returns the home directory path.
-echo $VAR_NAME
-# You can also display the value of a variable using echo
-```
-4) Viewing all environment variables (list all the current environment variables):
+2) Viewing all environment variables (list all the current environment variables):
 ```bash
 printenv #all
 printenv PWD #for specific search
+echo $PWD #same result as above
 
-#or use the enc command
+#Or use the `env` command
 env #all
 env | grep PWD #for specific search
 ```
@@ -40,33 +31,7 @@ In Unix, `fork()` creates a new process by duplicating the calling process. The 
 
 In this task, we would like to know whether the parent’s environment variables are inherited by the child process or not...
 
-1. Compile and run this program, save the output in `child.txt` file:
-```c
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-extern char **environ;
-void printenv()
-{
-    int i = 0;
-    while (environ[i] != NULL) {
-        printf("%s\n", environ[i]);
-        i++;
-    }
-}
-
-void main() {
-    pid_t childPid;
-    switch(childPid = fork()) {
-        case 0: /* child process */
-        printenv(); 
-        exit(0);
-    default: /* parent process */
-    // printenv(); 
-    exit(0); }
-}
-```
+1. Compile and run the program named `myprintenv.c`, save the output in `child.txt` file:
 
 2) For the 2nd step, make the parent do the `printenv()` function instead of the child. Compile and run the code again, and save the output in `parent.txt` file.
 ```c
@@ -90,22 +55,7 @@ How are environment variables affected when a new program is executed via `execv
 
 The function `execve()` calls a system call to load a new command and execute it; this function never returns. No new process is created; instead, the calling process’s text, data, bss, and stack are **overwritten** by that of the program loaded. `execve()` runs the new program inside the calling process.
 
-1) Compile and run this program:
-```c
-#include <unistd.h>
-
-extern char **environ;
-int main()
-{
-    char *argv[2];
-    argv[0] = "/usr/bin/env";
-    argv[1] = NULL;
-    execve("/usr/bin/env", argv, NULL); 
-    return 0 ;
-}
-/* This program simply executes a program called /usr/bin/env,
-which prints out the environment variables of the current process. */
-```
+1) Compile and run this program named `myenv.c`. This program simply executes a program called `/usr/bin/env`, which prints out the environment variables of the current process.
 
 2) Change the invocation of `execve()` to the following:
 ```c
