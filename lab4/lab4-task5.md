@@ -41,7 +41,7 @@ export MY_VAR=Hello #this one is defined by you
 ```
 - These environment variables are set in the user’s shell process. After you run `./prog`, the shell forks a child process, and uses the child to run the program.
 
-- Check whether all the environment variables you set in the shell process (parent) get into the **Set-UID** child process.
+4) Check whether all the environment variables you set in the shell process (parent) get into the **Set-UID** child process.
 ```bash
 ./setuid | grep PATH
 ./setuid | grep LD_LIBRARY_PATH
