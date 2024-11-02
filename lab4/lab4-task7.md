@@ -82,7 +82,7 @@ export LD_PRELOAD=./libmylib.so.1.0.1
 #it won't print (I am not sleeping!)
 #bc it's actually sleep :(
 ```
-
+---
 ### Observation:
 When `myprog` runs, it uses the environment (including `LD_PRELOAD`) of its owner, not the user who executed it.
 
