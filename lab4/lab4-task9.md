@@ -60,7 +60,7 @@ nano /etc/zzz
 #you should be able to modify it
 ```
 ---
-### Why did that work? Let's explain:
+### How did that work? Let's explain in details:
 
 | **Step**                     | **Description**        |
 |------------------------------|------------------------|
