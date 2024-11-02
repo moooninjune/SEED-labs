@@ -70,4 +70,4 @@ nano /etc/zzz
 | **4. Executing a Shell**     | The program uses `execve()` to launch a new shell (`/bin/sh`) as a child process. The new shell may retain some elevated capabilities despite the original program losing root privileges. |
 | **5. Shell Privileges**      | The child shell can execute commands and may still modify `/etc/zzz` due to potential capability leaking from the original program.  |
 
-
+> This lab was so annoying, but also very interesting :O Bye!
