@@ -56,7 +56,7 @@ echo "Hello Bob! I'm a file you can only read!" > bob.txt
 Hello Bob! I'm a file you can only read!
 ```
 
-> If you (as Bob) run this program, can you compromise system integrity, such as deleting a non-writable file?
+### If you (as Bob) run this program, can you compromise system integrity, such as deleting a non-writable file?
 
 Yes, by using a semicolon `;` after the file name, you can pass any second command you want.
 
@@ -79,6 +79,8 @@ sudo chown root catall
 sudo chmod 4755 catall
 ```
 
-> Do the attacks possible in Step 1 still work with this new setup? Describe and explain your observations regarding the differences in behavior between using `system()` and `execve()`.
+### Do the attacks possible in Step 1 still work with this new setup? Describe and explain your observations regarding the differences in behavior between using `system()` and `execve()`.
 
-No. Using the same command will, you will get the error message "No such file or directory". Commands after a semicolon would not inherit root access with `execve()`, reverting instead to the user's privileges. `execve()` simply treat the second argument as arguments of a command rather than invoking `/bin/sh` as `system()` do.
+No. Using the same command will, you will get the error message "No such file or directory". Commands after a semicolon would not inherit root access with `execve()`, reverting instead to the user's privileges.
+
+`execve()` simply treat the second argument as arguments of a command rather than invoking `/bin/sh` as `system()` do.
