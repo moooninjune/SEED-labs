@@ -66,8 +66,9 @@ Yes, by using a semicolon `;` after the file name, you can pass any second comma
 ./catall "bob.txt; rm bob.txt"
 #or even delete them
 ```
+---
 
-3) Comment out the `system(command)` statement, and uncomment the `execve()` statement; the program will use `execve()` to invoke the command. Compile the program, and make it a root-owned **Set-UID**.
+4) Comment out the `system(command)` statement, and uncomment the `execve()` statement; the program will use `execve()` to invoke the command. Compile the program, and make it a root-owned **Set-UID**.
 ```c
 // Use only one of the followings.
 //system(command);
