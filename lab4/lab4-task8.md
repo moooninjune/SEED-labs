@@ -6,12 +6,11 @@
 
 
 **An example scenario illustrates this risk:**
+* Bob, an auditor, needs to look at all the files on a company’s Unix system to check for fraud but must not be able to change any files.
 
-Bob, an auditor, needs to look at all the files on a company’s Unix system to check for fraud but must not be able to change any files.
+* To make this possible, Vince, the system administrator, created a special program that runs with root privileges. When Bob types in a file name, the program displays the file’s contents using `/bin/cat` without allowing any edits.
 
-To make this possible, Vince, the system administrator, created a special program that runs with root privileges. When Bob types in a file name, the program displays the file’s contents using `/bin/cat` without allowing any edits.
-
-This way, Bob can read any file he needs for his investigation, but he cannot modify anything, keeping the system safe.
+* This way, Bob can read any file he needs for his investigation, but he cannot modify anything, keeping the system safe.
 
 1) Compile this program, and make it a root-owned Set-UID program:
 ```c
