@@ -81,19 +81,20 @@ data = data + 5;
 ```
 ![Speculative execution (out-of-order execution)](https://github.com/moooninjune/SEED-labs/blob/fae6a264028f8e57d019e8a3664261470cfaee16/images/lab5-speculative-execution.jpg)
 
-1. If we'd like a particular branch to be taken in a speculative execution, we should train the CPU, so our selected branch can become the prediction result. In the code `SpectreExperiment.c`, we trained the CPU through the `for` loop:
+1. If we'd like a particular branch to be taken in a speculative execution, we should train the CPU, so our selected branch can become the prediction result. In the code `SpectreExperiment.c`, we trained the CPU through the `for` loop.
+
+2. We invoked `victim()` with a small argument (from 0 to 9). These values are less than the value `size`, so the true-branch of the `if-condition` is always taken.
+
 ```c
 // Train the CPU to take the true branch inside victim()
 for (i = 0; i < 10; i++)
 victim(i);
 ```
-
-2. We invoked `victim()` with a small argument (from 0 to 9). These values are less than the value `size`, so the true-branch of the `if-condition` is always taken.
 ```c
-void victim(size_t x)
+void victim(size_t x) 
 {
 if (x < size) //this is the branch (if-condition)
-temp = array[x * 4096 + DELTA]; //this is the output
+temp = array[x * 4096 + DELTA];
 }
 ```
 
@@ -112,13 +113,13 @@ victim(97);
 array[97*4096 + 1024] is in cache.
 The Secret = 97.
 ```
-    Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, it works!
+Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, it works!
 
 4. Comment out the following line and execute again.
 ```c
 _mm_clflush(&size);
 ```
-    It'll output nothing. The function `_mm_clflush()` flushes all content in caches that contains variable `size`, which ensure the cache is not influenced by `size` during each call of `victim`.
+It'll output nothing. The function `_mm_clflush()` flushes all content in caches that contains variable `size`, which ensure the cache is not influenced by `size` during each call of `victim`.
 
 5. Replace `victim(i);` inside the `for` loop with `victim(i + 20);`, and run the code again.
 ```c
@@ -127,7 +128,7 @@ for (i = 0; i < 10; i++)
 //victim(i);
 victim(i + 20);
 ```
-    It also fails to give any output. Because when `i > size`, the statement will be not executed.
+It also fails to give any output. Because when `i > size`, the statement will be not executed.
 
 
 ## Task 4: The Spectre Attack:
