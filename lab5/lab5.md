@@ -27,7 +27,7 @@ Check out these videos that explain the attacks very well:
 4. [Meltdown explained like you're five](https://youtu.be/JSqDqNysycQ?si=xuaS4rGSKK-GHHXH)
 
 ## Tasks 1 and 2: Side Channel Attacks via CPU Caches: 
-Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to steal a protected secret. The technique used in this side-channel attack is called `FLUSH+RELOAD`.
+Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to steal a protected secret.
 
 ![CPU Cache hit & miss](https://github.com/moooninjune/SEED-labs/blob/cca8d6b2b747d2d3b4be1f9681d3da227fc873b9/images/lab5-CPU-Cache.jpg)
 
@@ -36,7 +36,7 @@ Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to ste
 
 2. Which elements from the array are in the cache?
 
-    The accesses of array[3*4096] and array[7*4096] are extremely *faster* than that of the other elements because they're being brought from the cache.
+    The accesses of array[3/*4096] and array[7/*4096] are extremely *faster* than that of the other elements because they're being brought from the cache.
 
 3. Run the program at least 10 times and describe your observations.
 
