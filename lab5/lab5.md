@@ -135,7 +135,7 @@ It also fails to give any output. Because when `i > size`, the statement will be
 
 Most CPUs that use the out-of-order execution do not clean the cache, so some traces of it is left behind. The Spectre attack uses these traces to steal protected secrets.
 
-**Secrets can be in the same or different processes:**
+- **Secrets can be in the same or different processes:**
 
 | **Aspect** | **Secrets within the Same Process** | **Secrets in Other Processes**|
 |----------|----------|----------|
@@ -143,9 +143,7 @@ Most CPUs that use the out-of-order execution do not clean the cache, so some tr
 | **Spectre Exploit**      | Exploits *out-of-order* execution to bypass protections and access protected code branches.                 | Technically possible but much harder due to strong hardware isolation.                            |
 | **Ease of Attack**       | Easier to steal data, e.g., between web pages in the same browser process.                                | Much harder because processes are isolated from each other.                                       |
 
-**There are two types of regions:** Restricted region and Non-Restricted region.
-
-The restriction is usually achieved via an `if-condition`.
+- **There are two types of regions:** Restricted region and Non-Restricted region. The restriction is usually achieved via an `if-condition`.
 
 ![The buffer and the protected secret](https://github.com/moooninjune/SEED-labs/blob/dfd1036fed00336a97f9db67d21a839fa3df1ca1/images/lab4-task4.jpg)
 
