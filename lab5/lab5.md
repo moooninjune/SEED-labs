@@ -182,7 +182,4 @@ The number of hits is 106
 ## Task 6: Steal the Entire Secret String:
 In the previous task, we just read the first character of the secret string. In this task, we need to print out **the entire string** using the Spectre attack.
 
-- Please write your own code or extend the code in Task 5:
-```c
-
-```
+- Please write your own code or extend the code in Task 5: [Here it is](https://github.com/moooninjune/SEED-labs/blob/9afc9de12b0da83dc2f8de372a87c1e99489e0f7/lab5/Task6.c)
