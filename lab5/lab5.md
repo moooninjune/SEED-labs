@@ -2,9 +2,11 @@
 
 First, let's go over some **concepts**:
 
-1. **Speculative Execution:** When a CPU predicts the outcome of an operation and begins executing instructions ahead of time to improve performance. If the prediction is wrong, the CPU *discards the results.* (It can lead to security risks, like `Spectre` and `Meltdown`).
+1. **Speculative Execution:** CPU predicts the outcome of an operation and begins executing instructions ahead of time to improve performance. If the prediction is wrong, the CPU *discards the results.* (It can lead to security risks, like `Spectre` and `Meltdown`).
 
-2. **Side Channels:** Indirect ways through which sensitive information can be leaked, such as through *timing*, power use, or electromagnetic emissions, allowing attackers to gain access to data *without directly interacting with the system.*
+2. **Out-of-order Execution:** CPU executes instructions in a different order to optimize resource usage, without predicting outcomes.
+
+3. **Side Channels:** Indirect ways through which sensitive information can be leaked, such as through *timing*, power use, or electromagnetic emissions, allowing attackers to gain access to data *without directly interacting with the system.*
 
 - Watch this [Youtube video](https://youtu.be/syAdX44pokE?si=l5CXhKV4GIKLq6iF) for a good visual explaination.
 
@@ -27,6 +29,6 @@ Check out these videos that explain the attacks very well:
 ## Tasks 1 and 2: Side Channel Attacks via CPU Caches: 
 
 ### Task 1: Reading from Cache versus from Memory:
-
+ 
 ### Task 2: Using Cache as a Side Channel:
 
