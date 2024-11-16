@@ -50,10 +50,24 @@ The technique that we will be using is called `FLUSH+RELOAD`.
 
 ![Side-Channel-Attack](https://github.com/moooninjune/SEED-labs/blob/f4bce5cd3b29ddd107bbcd313205e83f8793b04a/images/lab5-sidechannel-attack.jpg)
 
-1. **Flush** the array from the cache to ensure it's not cached.
+1. **Flush** the array from the cache to ensure it's not cached (Empty the cache).
 
 2. Call the victim function, which accesses an array element based on the secret, causing it to be cached.
 
 3. **Reload** the array and measure the **time** for each element. A fast reload time indicates the element is cached, revealing the accessed element and the secret value.
 
+- Compile and run the `FlushReload.c` file.
+```bash
+# output
+array[94*4096 + 1024] is in cache.
+The Secret = 94.
+```
+
+- Run the program for at least 20 times, and count how many times you will get the secret correctly. 
+
+- You can also adjust the threshold CACHE_HIT_THRESHOLD to the one derived from Task 1 (80 is used in this code).
+
+## Task 3: Out-of-Order Execution and Branch Prediction:
+
+![Speculative execution (out-of-order execution)](https://github.com/moooninjune/SEED-labs/blob/fae6a264028f8e57d019e8a3664261470cfaee16/images/lab5-speculative-execution.jpg)
 
