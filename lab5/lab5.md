@@ -133,6 +133,29 @@ It also fails to give any output. Because when `i > size`, the statement will be
 
 ## Task 4: The Spectre Attack:
 
+Most CPUs that use the out-of-order execution do not clean the cache, so some traces of it is left behind. The Spectre attack uses these traces to steal protected secrets.
+
+Secrets can be in the same or different processes:
+
+| **Aspect** | **Secrets within the Same Process** | **Secrets in Other Processes**|
+|----------|----------|----------|
+| **Protection Mechanism** | Software mechanisms like sandboxes.                                                                       | Hardware-level process isolation.                                                                 |
+| **Spectre Exploit**      | Exploits *out-of-order* execution to bypass protections and access protected code branches.                 | Technically possible but much harder due to strong hardware isolation.                            |
+| **Ease of Attack**       | Easier to steal data, e.g., between web pages in the same browser process.                                | Much harder because processes are isolated from each other.                                       |
+
+- **There are two types of regions:** Restricted
+region and Non-Restricted region. The restriction is usually achieved via an `if-condition`.
+
+![The buffer and the protected secret](https://github.com/moooninjune/SEED-labs/blob/dfd1036fed00336a97f9db67d21a839fa3df1ca1/images/lab4-task4.jpg)
+
+```c
+if (x <= bound_upper && x >= bound_lower)
+return buffer[x];
+
+else
+return 0;
+```
+
 - Compile and run the `SpectreAttack.c` file.
 ```bash
 # output
@@ -141,6 +164,7 @@ buffer: 0x55b0913f7018
 index of secret (out of bound): -8208 
 array[0*4096 + 1024] is in cache.
 The Secret = 0().
+# here :
 array[83*4096 + 1024] is in cache.
 The Secret = 83(S).
 ```
