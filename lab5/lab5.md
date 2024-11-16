@@ -36,7 +36,7 @@ Both the Meltdown and Spectre attacks **use CPU cache as a side channel** to ste
 
 2. Which elements from the array are in the cache?
 
-    The accesses of array[3/*4096] and array[7/*4096] are extremely *faster* than that of the other elements because they're being brought from the cache.
+    The accesses of array[3\*4096] and array[7\*4096] are extremely *faster* than that of the other elements because they're being brought from the cache.
 
 3. Run the program at least 10 times and describe your observations.
 
