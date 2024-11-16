@@ -56,7 +56,7 @@ The technique that we will be using is called `FLUSH+RELOAD`.
 
 3. **Reload** the array and measure the **time** for each element. A fast reload time indicates the element is cached, revealing the accessed element and the secret value.
 
-- Compile and run the `FlushReload.c` file.
+Compile and run the `FlushReload.c` file.
 ```bash
 # output
 array[94*4096 + 1024] is in cache.
@@ -74,6 +74,7 @@ CPU makers made a severe mistake in the design of the out-of-order execution. Th
 During the out-of-order execution, the referenced memory is fetched into a register and is **also stored in the cache.** If the results of the out-of-order execution have to be discarded, the caching caused by the execution should also be discarded.
 
 ```cpp
+//example
 data = 0;
 if (x < size) {
 data = data + 5;
@@ -89,9 +90,11 @@ victim(i);
 
 2. We invoked `victim()` with a small argument (from 0 to 9). These values are less than the value `size`, so the true-branch of the `if-condition` is always taken.
 ```c
-void victim(size_t x) {
+void victim(size_t x)
+{
 if (x < size) //this is the branch (if-condition)
-temp = array[x * 4096 + DELTA]; }
+temp = array[x * 4096 + DELTA]; //this is the output
+}
 ```
 
 3. Once the CPU is trained, we pass a larger value (97) to the `victim()` function. This value is larger than `size`, so the false-branch of the if-condition inside `victim()` will be taken in the *actual* execution. However, we have flushed the variable `size` from the memory, so getting its value from the memory may take a while. **This is when the CPU will make a prediction, and start speculative execution.**
@@ -109,13 +112,13 @@ victim(97);
 array[97*4096 + 1024] is in cache.
 The Secret = 97.
 ```
-Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, the program fetches the effects on CPU cache.
+    Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, it works!
 
-4. Comment out the following line and execute again. Explain your observation.
+4. Comment out the following line and execute again.
 ```c
 _mm_clflush(&size);
 ```
-It'll output nothing. The function `_mm_clflush()` flushes all content in caches that contains variable `size`, which ensure the cache is not influenced by `size` during each call of `victim`.
+    It'll output nothing. The function `_mm_clflush()` flushes all content in caches that contains variable `size`, which ensure the cache is not influenced by `size` during each call of `victim`.
 
 5. Replace `victim(i);` inside the `for` loop with `victim(i + 20);`, and run the code again.
 ```c
@@ -124,7 +127,7 @@ for (i = 0; i < 10; i++)
 //victim(i);
 victim(i + 20);
 ```
-It also fails to give any output. Because when `i > size`, the statement will be not executed.
+    It also fails to give any output. Because when `i > size`, the statement will be not executed.
 
 
 ## Task 4: The Spectre Attack:
