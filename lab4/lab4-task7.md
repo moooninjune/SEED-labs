@@ -10,6 +10,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
 ### How do these environment variables influence the behavior of dynamic loader/linker when running... :
 
 1) As a regular program, normal user:
+
     - Create and compile `mylib.c`:
     ```c
     #include <stdio.h>
@@ -47,6 +48,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
     ```
 
 2) As a **Set-UID** root program, normal user:
+
 ```bash
 sudo chown root myprog
 sudo chmod 4755 myprog
@@ -55,6 +57,7 @@ sudo chmod 4755 myprog
 #bc it's actually sleep :(
 ```
 3) As a **Set-UID** root program, root user:
+
 ```bash
 sudo su 
 #when you run `sudo su` without specifying a user, it defaults to switching to the root user
@@ -68,6 +71,7 @@ exit
 ```
 
 4) As a **Set-UID** user1 program, another (non-root,non-user1) normal user:
+
 ```bash
 #No need to actually add user user1, just type:
 sudo chown user1 ./myprog.out
