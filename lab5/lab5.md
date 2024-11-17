@@ -113,7 +113,6 @@ victim(97);
 array[97*4096 + 1024] is in cache.
 The Secret = 97.
 ```
-Because 97 >= size, the `if-condition` inside the `victim()` function should not be executed. But, it works!
 
 4. Comment out the following line and execute again.
 ```c
