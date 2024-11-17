@@ -82,6 +82,6 @@ sudo chmod 4755 catall
 
 ### Do the attacks possible in Step 1 still work with this new setup? Describe and explain your observations regarding the differences in behavior between using `system()` and `execve()`.
 
-No. Using the same command will, you will get the error message "No such file or directory". Commands after a semicolon would not inherit root access with `execve()`, reverting instead to the user's privileges.
+No. Using the same command, you will get the error message "No such file or directory". Commands after a semicolon would not inherit root access with `execve()`, reverting instead to the user's privileges.
 
 `execve()` simply treat the second argument as arguments of a command rather than invoking `/bin/sh` as `system()` do.
