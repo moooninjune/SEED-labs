@@ -12,6 +12,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
 1) As a regular program, normal user:
 
     - Create and compile `mylib.c`:
+
     ```c
     #include <stdio.h>
     void sleep (int s)
@@ -25,6 +26,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
     gcc -shared -o libmylib.so.1.0.1 mylib.o -lc
     ```
     - Set the `LD_PRELOAD` environment variable:
+
     ```bash
     export LD_PRELOAD=./libmylib.so.1.0.1
     ```
