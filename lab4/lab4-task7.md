@@ -7,7 +7,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
 | `LD_LIBRARY_PATH` | Specifies a list of directories that the dynamic linker should search first when looking for shared libraries before the default paths. |
 | `LD_PRELOAD` | Forces the dynamic linker to load specific user-specified libraries before any others, regardless of where they are. |
 
-### How do these environment variables influence the behavior of dynamic loader/linker when running... :
+### How do these environment variables influence the behavior of dynamic loader/linker when running... ?
 
 1) As a regular program, normal user:
 
