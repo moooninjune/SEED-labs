@@ -49,12 +49,10 @@ printf("\n");
 
 ```bash
 head -c 12352 array1 > prefix
-
-md5collgen -p prefix -o p q
-
 tail -c +12480 array1 > suffix
 # The numbers in head & tail are decimal !!
 
+md5collgen -p prefix -o p q
 cat p suffix > new1
 cat q suffix > new2
 
