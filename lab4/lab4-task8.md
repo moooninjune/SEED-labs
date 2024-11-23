@@ -55,7 +55,7 @@ echo "Hello Bob! I'm a file you can only read!" > bob.txt
 #Output
 Hello Bob! I'm a file you can only read!
 ```
-
+---
 ### If you (as Bob) run this program, can you compromise system integrity, such as deleting a non-writable file?
 
 Yes, by using a semicolon `;` after the file name, you can pass any second command you want.
@@ -67,7 +67,6 @@ Yes, by using a semicolon `;` after the file name, you can pass any second comma
 #or even delete them
 ```
 ---
-
 4) Comment out the `system(command)` statement, and uncomment the `execve()` statement; the program will use `execve()` to invoke the command. Compile the program, and make it a root-owned **Set-UID**.
 ```c
 // Use only one of the followings.
