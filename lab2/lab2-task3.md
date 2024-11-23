@@ -58,6 +58,12 @@ tail -c +12480 array1 > suffix
 cat p suffix > new1
 cat q suffix > new2
 
+chmod u+x new1
+chmod u+x new2
+
+./new1
+./new2
+
 diff new1 new2
 # they should differ
 
