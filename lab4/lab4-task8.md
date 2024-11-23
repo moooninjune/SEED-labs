@@ -48,6 +48,7 @@ sudo chmod 4755 catall
 2) Create any file text that Bob is supposed to only read from and can't modify:
 ```bash
 echo "Hello Bob! I'm a file you can only read!" > bob.txt
+chmod -w bob.txt
 ```
 3) Now run the `catall` program and use the `bob.txt` file you created as an input:
 ```bash
@@ -61,10 +62,8 @@ Hello Bob! I'm a file you can only read!
 Yes, by using a semicolon `;` after the file name, you can pass any second command you want.
 
 ```bash
-./catall "bob.txt; nano bob.txt"
-#Bob will be able to modify any file
 ./catall "bob.txt; rm bob.txt"
-#or even delete them
+#Bob will be able to delete any file
 ```
 ---
 4) Comment out the `system(command)` statement, and uncomment the `execve()` statement; the program will use `execve()` to invoke the command. Compile the program, and make it a root-owned **Set-UID**.
