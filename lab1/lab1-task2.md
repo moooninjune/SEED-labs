@@ -22,6 +22,9 @@ openssl enc -aes-128-cbc -d -in cipher1.bin -out cipher1.txt -K 0011223344556677
 ```
 ```bash
 diff plaintext.txt cipher1.txt
+diff plaintext.txt cipher2.txt
+diff plaintext.txt cipher3.txt
+
 #there shouldn't be any difference!
 ```
 
