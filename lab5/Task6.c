@@ -36,7 +36,7 @@ void flushSideChannel()
 }
 
 static int scores[256];
-void reloadSideChannelImproved()
+void reloadSideChannelImproved() //
 {
 int i;
   volatile uint8_t *addr;
