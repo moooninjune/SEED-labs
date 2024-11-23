@@ -59,7 +59,7 @@ operations; it is effectively "sleeping" or idle.
     I am not sleeping!
     ```
     - When a regular user sets `LD_PRELOAD` and runs a normal program, the program uses the `LD_PRELOAD` library, allowing it to **override** certain functions (like `sleep`).
-
+---
 2) As a **Set-UID** root program, normal user:
 
 ```bash
@@ -72,7 +72,7 @@ sudo chmod 4755 myprog
 
 - When a `Set-UID` program is executed, it does not respect the caller's `LD_PRELOAD` environment variable. Instead, it uses the environment of the owner of the program.
 - `Set-UID` programs ignore `LD_PRELOAD` from the caller and use the environment of the program's owner.
-
+---
 3) As a **Set-UID** root program, root user:
 
 ```bash
@@ -88,7 +88,7 @@ exit
 ```
 
 - When a `Set-UID` program is executed by root (or the user who owns the program), the environment variables (including `LD_PRELOAD`) from the root user will be respected, allowing the custom behavior of the program (e.g., replacing the `sleep` function).
-
+---
 4) As a **Set-UID** user1 program, another (non-root,non-user1) normal user:
 
 ```bash
