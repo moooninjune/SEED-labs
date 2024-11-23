@@ -14,6 +14,17 @@ openssl enc -aes-128-cfb -e -in plaintext.txt -out cipher2.bin -K 00112233445566
 openssl enc -bf-cbc -e -in plaintext.txt -out cipher3.bin -K 00112233445566778899aabbccddeeff -iv 0102030405060708
 ```
 
+3. Then, decrypt each ciphertext to make sure it'll give the same old plaintext.
+```bash
+openssl enc -aes-128-cbc -d -in cipher1.bin -out cipher1.txt -K 00112233445566778899aabbccddeeff -iv 0102030405060708
+
+#the same for the rest...
+```
+```bash
+diff plaintext.txt cipher1.txt
+#there shouldn't be any difference!
+```
+
 ### NOTES:
 | Option | Meaning |
 | ------ | ------ |
