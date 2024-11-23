@@ -58,7 +58,7 @@ operations; it is effectively "sleeping" or idle.
     # output
     I am not sleeping!
     ```
-    - When a regular user sets `LD_PRELOAD` and runs a normal program, the program uses the `LD_PRELOAD` library, allowing it to **override** certain functions (like sleep).
+    - When a regular user sets `LD_PRELOAD` and runs a normal program, the program uses the `LD_PRELOAD` library, allowing it to **override** certain functions (like `sleep`).
 
 2) As a **Set-UID** root program, normal user:
 
