@@ -1,4 +1,4 @@
-## Task 2: Generating Two Different Files with the Same MD5 Hash:
+## Task 2: Understanding MD5’s Property:
 > if `MD5(M) = MD5(N)`, i.e., the MD5 hashes of M and N are the same, then for any input T, `MD5(M || T) = MD5(N || T)`, where || represents concatenation (joining).
 
 1.	Generate two different files that have the same MD5 hash value.
