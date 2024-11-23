@@ -74,7 +74,7 @@ BN_mod_mul(res, a, b, n, ctx)
 BN_mod_exp(res, a, c, n, ctx)
 ```
 
-9. Compute modular inverse, i.e., given a, find b, such that `a ∗ b mod n = 1`. The value b is called the inverse of a, with respect to modular n.
+9. Compute modular inverse, i.e., given a, find b, such that `a ∗ b mod n = 1`. The value b is called the inverse of a, with respect to modular n: `b = a^-1 mod n`.
 ```c
 BN_mod_inverse(b, a, n, ctx);
 ```
