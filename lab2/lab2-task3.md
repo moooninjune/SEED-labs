@@ -41,7 +41,7 @@ printf("\n");
 
 > So, the prefix will start from 0 to 12352 (from the beginning of the array & is a multiple of 64), and the suffix will start from 12480 (from the end of the array & keeping only 128Bytes in-between) to the end of the code.
 
-4. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Extract the `128B` from each output so we could use it to replace the 128B in the original program. Use `cat` to append.
+4. Use the `head` & `tail` commands. Then use `md5collgen` on the prefix to generate two outputs that have the same MD5 hash value. Use `cat` to append.
 
 > MD5 (prefix || P) = MD5 (prefix || Q)
 
@@ -50,11 +50,9 @@ printf("\n");
 ```bash
 head -c 12352 array1 > prefix
 
-md5collgen -p prefix -o out1 out2
+md5collgen -p prefix -o p q
 
 tail -c +12480 array1 > suffix
-tail -c 128 out1 > p
-tail -c 128 out2 > q
 # The numbers in head & tail are decimal !!
 
 cat p suffix > new1
