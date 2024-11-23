@@ -9,6 +9,16 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
 
 ### How do these environment variables influence the behavior of dynamic loader/linker when running... ?
 
+There is an actual function called `sleep` in Linux, used to **pause** the execution of a program for a specified number of seconds.
+```
+sleep(seconds);
+/*
+The sleep function takes a single argument `seconds`, which specifies the number of seconds
+to pause the program's execution. During this time, the program does not perform any
+operations; it is effectively "sleeping" or idle.
+*/
+```
+
 1) As a regular program, normal user:
 
     - Create and compile `mylib.c`:
@@ -48,6 +58,7 @@ In Linux, `ld.so` or `ld-linux.so` are the dynamic loaders that handle loading s
     # output
     I am not sleeping!
     ```
+    - When a regular user sets `LD_PRELOAD` and runs a normal program, the program uses the `LD_PRELOAD` library, allowing it to **override** certain functions (like sleep).
 
 2) As a **Set-UID** root program, normal user:
 
@@ -58,6 +69,10 @@ sudo chmod 4755 myprog
 #it won't print (I am not sleeping!)
 #bc it's actually sleep :(
 ```
+
+- When a `Set-UID` program is executed, it does not respect the caller's `LD_PRELOAD` environment variable. Instead, it uses the environment of the owner of the program.
+- `Set-UID` programs ignore `LD_PRELOAD` from the caller and use the environment of the program's owner.
+
 3) As a **Set-UID** root program, root user:
 
 ```bash
@@ -71,6 +86,8 @@ export LD_PRELOAD=./libmylib.so.1.0.1
 exit
 #to return from root
 ```
+
+- When a `Set-UID` program is executed by root (or the user who owns the program), the environment variables (including `LD_PRELOAD`) from the root user will be respected, allowing the custom behavior of the program (e.g., replacing the `sleep` function).
 
 4) As a **Set-UID** user1 program, another (non-root,non-user1) normal user:
 
@@ -88,6 +105,9 @@ export LD_PRELOAD=./libmylib.so.1.0.1
 #it won't print (I am not sleeping!)
 #bc it's actually sleep :(
 ```
+
+- When a `Set-UID` program is executed by a user who is neither the owner nor root, it still runs in the environment of the owner (the `Set-UID` program's owner). Therefore, any `LD_PRELOAD` set by the caller is ignored.
+
 ---
 ### Observation:
 When `myprog` runs, it uses the environment (including `LD_PRELOAD`) of its owner, not the user who executed it.
