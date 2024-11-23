@@ -30,6 +30,7 @@ void main()
     exit(0); }
 }
 ```
+- `environ` is a global variable that holds the environment variables of the process.
 
 2) For the 2nd step, make the parent do the `printenv()` function instead of the child. Compile and run the code again, and save the output in `parent.txt` file.
 ```c
