@@ -23,3 +23,7 @@
 
     LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/System/Spectre_Attack/)
 
+6. [Buffer Overflow Attack Lab (Server Version)](lab6)
+
+    LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Software/Buffer_Overflow_Server/)
+
