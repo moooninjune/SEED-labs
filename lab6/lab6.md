@@ -13,26 +13,32 @@ This vulnerability can be used by a malicious user to **alter the flow control o
 **The Vulnerable Program:** [stack.c](/lab6/stack.c) has a buffer overflow vulnerability...
 
 The program reads input (up to 517 bytes) from a remote user via a TCP connection, redirecting it to a buffer in the `bof()` function.
-    
+
 However, the buffer's size `BUF_SIZE` is smaller than 517 bytes, and since `strcpy()` doesn't enforce size limits, this creates a buffer overflow vulnerability. The program runs with root privileges, so exploiting this flaw could allow remote users to gain root access to the server.
 
 - To compile the vulnerable program:
 
-```bash
-#gcc -DBUF_SIZE=$(L1): Sets the buffer size (using a variable L1) 
-#-fno-stack-protector: Disables StackGuard, a gcc feature that prevents stack buffer overflows
-#-z execstack: Makes the stack executable
-gcc -DBUF_SIZE=$(L1) -o stack -z execstack -fno-stack-protector stack.c
+    ```bash
+    gcc -DBUF_SIZE=$(L1) -o stack -z execstack -fno-stack-protector stack.c
+    ```
+    | Option | Usage |
+    | ------ | ----- |
+    |`gcc -DBUF_SIZE=$(L1)`| Sets the buffer size (using a variable L1).
+    |`-fno-stack-protector`| Disables StackGuard, a gcc feature that prevents stack buffer overflows.|
+    `-z execstack`| Makes the stack executable.|
 
-#or just type `make` to run the commands specified in the Makefile
-#`make install` copies the compiled binary into the `bof-containers` folder
-make
-make install
-```
+- Or just type `make` to run the commands specified in the  `Makefile`.
 
-Here is the [`Makefile`](/lab6/Makefile) file. You can compile the [`server.c`](/lab6/server.c) code using different `BUF_SIZE` values in `Makefile`.
+    & `make install` copies the compiled binary into the `bof-containers` folder.
 
-The server program `server.c` listens on port 9090 for TCP connections. When a connection is established, it runs the `stack.c` program and redirects the TCP connection as the `stdin` for `stack`. This allows `stack` to read data provided by the **remote client**.
+    ```bash
+    make
+    make install
+    ```
+
+    Here is the [`Makefile`](/lab6/Makefile) file. You can compile the [`server.c`](/lab6/server.c) code using different `BUF_SIZE` values in `Makefile`.
+
+**The server program:** `server.c` listens on port 9090 for TCP connections. When a connection is established, it runs the `stack.c` program and redirects the TCP connection as the `stdin` for `stack`. This allows `stack` to read data provided by the **remote client**.
 
 ---
 ### Docker & Compose:
