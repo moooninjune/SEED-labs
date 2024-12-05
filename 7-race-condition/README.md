@@ -63,7 +63,7 @@
     sudo chown root vulp
     sudo chmod 4755 vulp
     ```
-
+---
 ## Task 1: Choosing Our Target
 
  We would like to exploit the **race condition vulnerability** by targeting  the password file `/etc/passwd`, which is not writable by normal users. This file stores information about all user accounts on the system, like usernames, passwords (or where to find them), and user privileges.
