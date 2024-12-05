@@ -70,6 +70,8 @@
 
 By exploiting the vulnerability, we would like to add a record to the password file, with a goal of creating a **new user account that has the root privilege**.
 
+---
+
 Inside the password file, each user has an entry, which consists of seven fields separated by colons (:). **The entry for the root user is:**
 ```
 root:x:0:0:root:/root:/bin/bash
@@ -85,8 +87,9 @@ root:x:0:0:root:/root:/bin/bash
 - Third field `0`: User ID (UID). A UID of `0` means root privileges.
 
 - Fourth field `0`: Group ID (GID).
+---
 
-**To get the password hash:** This value can be used as the second field in the new user entry.
+**Choose the password:** This value can be used as the second field in the new user entry.
 
 1. Option 1: Generate a password hash using the `adduser` command on a system you control, and copy the hash from `/etc/shadow`.
 
@@ -94,3 +97,4 @@ root:x:0:0:root:/root:/bin/bash
     ```
     test:U6aMy0wojraho:0:0:test:/root:/bin/bash
     ```
+---
