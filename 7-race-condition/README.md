@@ -4,7 +4,7 @@
 
  If a privileged program has a race-condition vulnerability, attackers can run a parallel process to “race” against the privileged program, with an intention to change the behaviors of the program.
 
- ## Environment Setup:
+ ## Environment Setup
 
  1. **Turning Off Countermeasures:**
 
@@ -13,7 +13,7 @@
     sudo sysctl -w fs.protected_symlinks=0
     sudo sysctl fs.protected_regular=0
     ```
-
+---
  2. **The Vulnerable Program:** contains a race-condition vulnerability.
 
     ```c
@@ -55,7 +55,7 @@
 - However, there is a **race condition vulnerability** in this program. Due to the time window between the check `access()` and the use `fopen()`, there is a possibility that the file used by `access()` is different from the file used by `fopen()`, even though they have the same file name `/tmp/XYZ`.
 
 - If a malicious attacker can make `/tmp/XYZ` a **symbolic link** pointing to a protected file, such as `/etc/passwd`, inside the time window, the attacker can cause the user input to be appended to `/etc/passwd`, thus gaining root privileges. The vulnerable program runs with root privileges, so it can overwrite any file.
-
+---
 3. **Compile & Set up the Set-UID program:**
 
     ```bash
@@ -64,7 +64,7 @@
     sudo chmod 4755 vulp
     ```
 
-## Task 1: Choosing Our Target:
+## Task 1: Choosing Our Target
 
  We would like to exploit the **race condition vulnerability** by targeting  the password file `/etc/passwd`, which is not writable by normal users. This file stores information about all user accounts on the system, like usernames, passwords (or where to find them), and user privileges.
 
