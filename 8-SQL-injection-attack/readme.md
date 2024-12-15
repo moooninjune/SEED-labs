@@ -34,7 +34,7 @@ Web applications often take user *inputs* to construct SQL queries for retrievin
     # Alias for: docker exec -it <id> /bin/bash
     $ docksh <id>
     ```
-    **Example**:
+    - Example:
     ```bash
     #in one terminal:
 
@@ -52,11 +52,9 @@ Web applications often take user *inputs* to construct SQL queries for retrievin
 ---
 ## Task 1: Get Familiar with SQL Statements:
 
-The data used by our web application is stored in a MySQL database, which is **hosted on our MySQL container**.
+The data used by our web application is stored in a MySQL database, which is **hosted on our MySQL container**. We have created a database called `sqllab_users`, which contains a table called `credential`. The table stores the personal information (e.g. eid, password, salary, ssn, etc.) of every employee.
 
-We have created a database called `sqllab_users`, which contains a table called `credential`. The table stores the personal information (e.g. eid, password, salary, ssn, etc.) of every employee.
-
-- Inside the MySQL container:
+Inside the MySQL container:
 ```
 # mysql -u root -pdees
 
@@ -71,12 +69,10 @@ mysql> show tables;
 +------------------------+
 ```
 
-- Use a SQL command to print all the profile information
-of the employee Alice:
+Use a SQL command to print all the profile information of the employee *Alice*:
 ```sql
 select * from credential where Name='Alice';
 ```
 ---
 ## Task 2: SQL Injection Attack on *SELECT* Statement:
-
 
