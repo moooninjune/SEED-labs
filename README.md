@@ -30,3 +30,15 @@
 7. [Race Condition Vulnerability Lab](/7-race-condition/)
 
     LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Software/Race_Condition/)
+
+8. [SQL Injection Attack Lab](/8-SQL-injection-attack/)
+
+    LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Web/Web_SQL_Injection/)
+
+9. [Cross-Site Scripting (XSS) Attack Lab](/9-Cross-Site-Scripting-(XSS)/)
+
+    LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Web/Web_XSS_Elgg/)
+
+10. [Shellshock Attack Lab](/10-Shellshock-Attack/)
+
+    LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Web/Shellshock/)
