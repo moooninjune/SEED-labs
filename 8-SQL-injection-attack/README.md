@@ -122,6 +122,7 @@ INSERT INTO credential (name, eid) VALUES ('Hello','123456');
 Username: `a'; INSERT INTO credential (name, eid) VALUES ('Hello','123456') #`
 
 ![alt text](image.png)
+
 It doesn't support for multiple queries as we can see.
 
 ## Task 3: SQL Injection Attack on *UPDATE* Statement:
