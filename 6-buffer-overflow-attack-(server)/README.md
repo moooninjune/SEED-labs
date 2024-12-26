@@ -10,7 +10,7 @@ This vulnerability can be used by a malicious user to **alter the flow control o
     sudo /sbin/sysctl -w kernel.randomize_va_space=0
     ```
 ---
-**The Vulnerable Program:** [stack.c](/lab6/stack.c) has a buffer overflow vulnerability...
+**The Vulnerable Program:** [stack.c](/6-buffer-overflow-attack-(server)/stack.c) has a buffer overflow vulnerability...
 
 The program reads input (up to 517 bytes) from a remote user via a TCP connection, redirecting it to a buffer in the `bof()` function.
 
@@ -36,7 +36,7 @@ However, the buffer's size `BUF_SIZE` is smaller than 517 bytes, and since `strc
     make install
     ```
 
-    Here is the [`Makefile`](/lab6/Makefile) file. You can compile the [`server.c`](/lab6/server.c) code using different `BUF_SIZE` values in `Makefile`.
+    Here is the [`Makefile`](/6-buffer-overflow-attack-(server)/Makefile) file. You can compile the [`server.c`](/6-buffer-overflow-attack-(server)/server.c) code using different `BUF_SIZE` values in `Makefile`.
 
 **The server program:** `server.c` listens on port 9090 for TCP connections. When a connection is established, it runs the `stack.c` program and redirects the TCP connection as the `stdin` for `stack`. This allows `stack` to read data provided by the **remote client**.
 
