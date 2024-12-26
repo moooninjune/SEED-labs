@@ -39,6 +39,6 @@
 
     LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Web/Web_XSS_Elgg/)
 
-10. [Shellshock Attack Lab](/10-Shellshock-Attack/)
+10. [Shellshock Attack Lab](/Shellshock-Attack/)
 
     LAB Link [Here.](https://seedsecuritylabs.org/Labs_20.04/Web/Shellshock/)
